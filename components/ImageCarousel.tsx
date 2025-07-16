@@ -4,9 +4,9 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 
 const images = [
-  '/hero1.jpg',
-  '/hero2.jpg',
-  '/hero3.jpg',
+  '/slider_img1-Co3H-kFW.jpg',
+  '/slider_img3-C4_BSWK1.jpg',
+  '/slider_img5-CJz7fHVO.jpg',
 ];
 
 export function ImageCarousel() {
