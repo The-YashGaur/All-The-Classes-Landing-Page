@@ -911,7 +911,7 @@ export default function TheClassesLanding() {
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-800">Phone</h3>
-                    <p className="text-gray-600">+91 98765 43210</p>
+                    <p className="text-gray-600">+91 9625-852085</p>
                   </div>
                 </div>
                 <div className="flex items-center space-x-4">
@@ -920,7 +920,7 @@ export default function TheClassesLanding() {
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-800">Email</h3>
-                    <p className="text-gray-600">info@theclasses.com</p>
+                    <p className="text-gray-600">support@alltheclasses.com</p>
                   </div>
                 </div>
                 <div className="flex items-start space-x-4">
@@ -929,7 +929,7 @@ export default function TheClassesLanding() {
                   </div>
                   <div>
                     <h3 className="font-bold text-gray-800">Address</h3>
-                    <p className="text-gray-600">123 Education Street, Learning City, State 123456</p>
+                    <p className="text-gray-600">P-40A, Shashi Park Rd, near Ahlcon Public School, Supreme Enclave, Mayur Vihar, New Delhi, Delhi, 110091</p>
                   </div>
                 </div>
                 
@@ -1013,12 +1013,10 @@ export default function TheClassesLanding() {
             <div>
               <h3 className="font-bold mb-4">Contact Info</h3>
               <div className="space-y-2 text-gray-400">
-                <p>+91 98765 43210</p>
-                <p>info@theclasses.com</p>
+                <p>+91 9625-852085</p>
+                <p>support@alltheclasses.com</p>
                 <p>
-                  123 Education Street
-                  <br />
-                  Learning City, State 123456
+                P-40A, Shashi Park Rd, near Ahlcon Public School, Supreme Enclave, Mayur Vihar, New Delhi, Delhi, 110091
                 </p>
               </div>
             </div>
