@@ -730,33 +730,88 @@ export default function TheClassesLanding() {
       </section>
 
       {/* Expert Faculty */}
-      <section id="faculty" className="py-20 px-4 bg-white" data-animate>
-        <div className="container mx-auto">
+      <section id="faculty" className="py-16 md:py-24 px-4 bg-white relative overflow-hidden" data-animate>
+        {/* Decorative elements */}
+        <div className="absolute inset-0">
+          <div className="absolute top-1/4 -left-20 w-96 h-96 bg-orange-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+          <div className="absolute bottom-1/4 -right-20 w-96 h-96 bg-purple-100 rounded-full mix-blend-multiply filter blur-3xl opacity-20"></div>
+        </div>
+
+        <div className="container mx-auto relative z-10">
           <div className="text-center mb-16">
+            <span className="inline-block text-orange-500 font-medium mb-3 tracking-widest text-xs uppercase">OUR TEAM</span>
             <h2 className="text-4xl font-bold text-gray-800 mb-4">Expert Faculty</h2>
-            <p className="text-xl text-gray-600">Learn from the best in the field</p>
+            <div className="w-16 h-1 bg-gradient-to-r from-orange-400 to-orange-600 mx-auto mb-4 rounded-full"></div>
+            <p className="text-lg text-gray-600 max-w-2xl mx-auto">Learn from the most experienced educators in the industry</p>
           </div>
 
-          <div className="grid md:grid-cols-3 gap-8">
-            {faculty.map((teacher, index) => (
-              <Card key={index} className="group hover:shadow-2xl hover:-translate-y-2 transition-all duration-300 border-0 shadow-lg">
-                <CardContent className="p-8 text-center">
-                  <div className="relative mb-6">
-                    <div className="w-32 h-32 mx-auto rounded-full bg-gradient-to-r from-orange-400 to-purple-400 p-1">
+          <div className="relative">
+            {/* Connecting lines */}
+            <div className="hidden md:block absolute top-1/2 left-0 right-0 h-1 bg-gradient-to-r from-orange-100 via-orange-200 to-orange-100 -z-10"></div>
+            <div className="hidden md:block absolute left-1/2 top-0 bottom-0 w-1 bg-gradient-to-b from-orange-100 via-orange-200 to-orange-100 -z-10"></div>
+            
+            <div className="grid grid-cols-1 md:grid-cols-3 gap-12 md:gap-8">
+              {faculty.map((teacher, index) => (
+                <div 
+                  key={index} 
+                  className={`relative group ${index === 1 ? 'md:mt-12' : 'md:mt-0'}`}
+                >
+                  {/* Teacher image with decorative border */}
+                  <div className="relative w-48 h-48 mx-auto mb-6">
+                    {/* Outer circle */}
+                    <div className="absolute inset-0 rounded-full bg-gradient-to-r from-orange-400 to-purple-500 p-1 animate-spin-slow" style={{ animationDuration: '10s' }}>
+                      <div className="absolute inset-0.5 rounded-full bg-white"></div>
+                    </div>
+                    
+                    {/* Image */}
+                    <div className="absolute inset-1 rounded-full overflow-hidden">
                       <Image
                         src={teacher.image || "/placeholder.svg"}
                         alt={teacher.name}
-                        width={120}
-                        height={120}
-                        className="rounded-full w-full h-full object-cover"
+                        width={176}
+                        height={176}
+                        className="w-full h-full object-cover"
                       />
                     </div>
+                    
+                    {/* Decorative elements */}
+                    <div className="absolute -inset-4 rounded-full border-2 border-orange-200 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                    <div className="absolute -inset-6 rounded-full border border-orange-100 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-800 mb-2">{teacher.name}</h3>
-                  <p className="text-orange-600 font-medium mb-2">{teacher.subject}</p>
-                  <p className="text-gray-600">{teacher.experience}</p>
-                </CardContent>
-              </Card>
+                  
+                  {/* Teacher info */}
+                  <div className="text-center px-4">
+                    <h3 className="text-xl font-bold text-gray-800 mb-1 group-hover:text-orange-600 transition-colors">
+                      {teacher.name}
+                    </h3>
+                    <p className="text-orange-500 font-medium mb-2">{teacher.subject}</p>
+                    <p className="text-gray-600 text-sm">{teacher.experience}</p>
+                    
+                    {/* Decorative dot */}
+                    <div className="mt-4 flex justify-center">
+                      <div className="w-2 h-2 bg-orange-400 rounded-full group-hover:scale-150 transition-transform duration-300"></div>
+                    </div>
+                  </div>
+                  
+                  {/* Hover effect */}
+                  <div className="absolute inset-0 -z-10 rounded-2xl bg-gradient-to-br from-white to-orange-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 scale-95 group-hover:scale-100"></div>
+                </div>
+              ))}
+            </div>
+          </div>
+          
+          {/* Stats */}
+          <div className="mt-20 grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+            {[
+              { number: '15+', label: 'Years Experience' },
+              { number: '1000+', label: 'Students Trained' },
+              { number: '95%', label: 'Success Rate' },
+              { number: '50+', label: 'Expert Faculty' },
+            ].map((stat, index) => (
+              <div key={index} className="text-center p-4 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
+                <div className="text-2xl md:text-3xl font-bold text-orange-500 mb-1">{stat.number}</div>
+                <div className="text-gray-600 text-sm">{stat.label}</div>
+              </div>
             ))}
           </div>
         </div>
