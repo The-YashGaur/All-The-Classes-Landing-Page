@@ -902,6 +902,11 @@ export default function TheClassesLanding() {
                     <p className="text-gray-600">123 Education Street, Learning City, State 123456</p>
                   </div>
                 </div>
+                
+                {/* Map Container */}
+                <div className="mt-6 h-64 rounded-xl overflow-hidden border border-gray-200">
+                  <OSMap />
+                </div>
               </div>
             </div>
             <Card className="shadow-xl border-0">
