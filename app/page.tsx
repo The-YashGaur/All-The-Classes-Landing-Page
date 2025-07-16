@@ -180,21 +180,21 @@ export default function TheClassesLanding() {
 
   const faculty = [
     {
-      name: "Dr. Rajesh Kumar",
-      subject: "Physics",
-      experience: "15+ Years Experience",
-      image: "/placeholder.svg?height=120&width=120",
-    },
-    {
-      name: "Prof. Meera Singh",
+      name: "Vikram Sagar Sir",
       subject: "Chemistry",
-      experience: "12+ Years Experience",
+      experience: "10 Years Experience",
       image: "/placeholder.svg?height=120&width=120",
     },
     {
-      name: "Dr. Amit Sharma",
-      subject: "Mathematics",
-      experience: "18+ Years Experience",
+      name: "Rajeev Lal Sir",
+      subject: "Physics",
+      experience: "30 Years Experience",
+      image: "/placeholder.svg?height=120&width=120",
+    },
+    {
+      name: "Gyanendra Singh Sir",
+      subject: "Biology",
+      experience: "20 Years Experience",
       image: "/placeholder.svg?height=120&width=120",
     },
   ]
@@ -588,8 +588,8 @@ export default function TheClassesLanding() {
         </div>
       </section>
 
-      {/* Teaching Methodology */}
-      <section className="py-20 px-4 bg-gradient-to-br from-purple-50 to-orange-50 relative overflow-hidden" data-animate>
+      {/* Teaching Methodology - Responsive */}
+      <section className="py-12 md:py-20 px-4 bg-gradient-to-br from-purple-50 to-orange-50 relative overflow-hidden" data-animate>
         {/* Decorative elements */}
         <div className="absolute top-0 left-0 w-full h-full opacity-5">
           <div className="absolute top-1/4 -left-20 w-40 h-40 rounded-full bg-orange-400 blur-3xl"></div>
@@ -597,107 +597,136 @@ export default function TheClassesLanding() {
         </div>
         
         <div className="container mx-auto relative z-10">
-          <div className="text-center mb-16">
+          <div className="text-center mb-8 md:mb-16">
             <span className="inline-block text-orange-500 font-medium mb-3 text-sm uppercase tracking-wider">Our Process</span>
-            <h2 className="text-4xl font-bold text-gray-800 mb-4">Teaching <span className="bg-orange-400 bg-clip-text text-transparent">Methodology</span></h2>
-            <p className="text-lg text-gray-600 max-w-2xl mx-auto">A proven 4-step approach designed to maximize learning outcomes and student success</p>
+            <h2 className="text-3xl md:text-4xl font-bold text-gray-800 mb-3 md:mb-4">
+              Teaching <span className="bg-orange-400 bg-clip-text text-transparent">Methodology</span>
+            </h2>
+            <p className="text-base md:text-lg text-gray-600 max-w-2xl mx-auto px-4">
+              A proven 4-step approach designed to maximize learning outcomes and student success
+            </p>
           </div>
 
-          <div className="relative min-h-[500px] md:min-h-[700px] flex items-center justify-center">
-            {/* Animated Center Circle */}
-            <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-              <div className="relative">
-                {/* Pulsing glow effect */}
-                <div className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-400/20 to-purple-400/20 animate-pulse-slow"></div>
-                {/* Main circle */}
-                <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-orange-400 flex flex-col items-center justify-center text-white p-6 text-center shadow-2xl relative z-10 transform transition-transform duration-700 hover:scale-105">
-                  <div className="absolute -inset-4 rounded-full border-2 border-orange-300/30 animate-spin-slow [animation-duration:20s]"></div>
-                  <h3 className="text-xl md:text-2xl font-bold">Our</h3>
-                  <h3 className="text-2xl md:text-3xl font-bold mb-2">Methodology</h3>
-                  <div className="w-12 h-1 bg-white/50 rounded-full my-2"></div>
-                  <p className="text-xs md:text-sm opacity-90 font-medium">4 Steps to Success</p>
-                </div>
-              </div>
-            </div>
-
-            {/* Steps - Adjusted positioning */}
-            <div className="relative w-full h-full">
-              {methodology.map((step, index) => {
-                // Position steps in a circle with better spacing
-                const angle = (index * 90) - 45; // 4 steps at 90 degrees each, starting at -45deg
-                const radius = 350; // Increased distance from center
-                const x = Math.sin(angle * (Math.PI / 180)) * radius;
-                const y = -Math.cos(angle * (Math.PI / 180)) * radius;
-                
-                return (
-                  <div 
-                    key={index}
-                    className="absolute w-64 p-6 bg-white/95 backdrop-blur-sm rounded-xl shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl z-10 border border-gray-100 group"
-                    style={{
-                      left: '50%',
-                      top: '50%',
-                      transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
-                      zIndex: 10,
-                      transitionDelay: `${index * 100}ms`,
-                    }}
-                    data-aos="fade-up"
-                    data-aos-delay={index * 100}
-                  >
-                    <div className="relative">
-                      <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-orange-400 rounded-full flex items-center justify-center text-white font-bold text-xl mb-4 mx-auto shadow-lg group-hover:scale-110 transition-transform duration-300">
-                        {step.step}
-                        <div className="absolute -inset-1 rounded-full border-2 border-orange-300/30 animate-ping-slow opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                      </div>
+          <div className="relative min-h-[auto] md:min-h-[700px] flex items-center justify-center">
+            {/* Mobile Steps - Vertical List */}
+            <div className="w-full md:hidden space-y-6">
+              {methodology.map((step, index) => (
+                <div 
+                  key={index}
+                  className="w-full p-6 bg-white/95 backdrop-blur-sm rounded-xl shadow-lg border border-gray-100 group"
+                  data-aos="fade-up"
+                  data-aos-delay={index * 100}
+                >
+                  <div className="flex items-start space-x-4">
+                    <div className="flex-shrink-0 w-12 h-12 bg-orange-400 rounded-full flex items-center justify-center text-white font-bold text-lg shadow-md">
+                      {step.step}
                     </div>
-                    <div className="pt-8">
-                      <h3 className="text-lg font-bold text-center text-gray-800 mb-3 group-hover:text-orange-500 transition-colors duration-300">
+                    <div>
+                      <h3 className="text-lg font-bold text-gray-800 mb-2 group-hover:text-orange-500 transition-colors duration-300">
                         {step.title}
                       </h3>
-                      <p className="text-gray-600 text-center text-sm leading-relaxed">
+                      <p className="text-gray-600 text-sm">
                         {step.description}
                       </p>
                     </div>
                   </div>
-                );
-              })}
+                </div>
+              ))}
+            </div>
 
-              {/* Connecting Lines - Simplified */}
-              <svg className="absolute top-0 left-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
-                {methodology.map((_, index) => {
-                  if (index === methodology.length - 1) return null;
-                  const angle1 = (index * 90) - 45;
-                  const angle2 = ((index + 1) * 90) - 45;
-                  const radius = 30; // Slightly further from center
-                  
-                  const x1 = 50 + Math.sin(angle1 * (Math.PI / 180)) * radius;
-                  const y1 = 50 - Math.cos(angle1 * (Math.PI / 180)) * radius;
-                  const x2 = 50 + Math.sin(angle2 * (Math.PI / 180)) * radius;
-                  const y2 = 50 - Math.cos(angle2 * (Math.PI / 180)) * radius;
+            {/* Desktop Layout - Circle */}
+            <div className="hidden md:block w-full h-full">
+              {/* Animated Center Circle */}
+              <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
+                <div className="relative">
+                  <div className="absolute inset-0 rounded-full bg-gradient-to-br from-orange-400/20 to-purple-400/20 animate-pulse-slow"></div>
+                  <div className="w-48 h-48 md:w-64 md:h-64 rounded-full bg-orange-400 flex flex-col items-center justify-center text-white p-6 text-center shadow-2xl relative z-10 transform transition-transform duration-700 hover:scale-105">
+                    <div className="absolute -inset-4 rounded-full border-2 border-orange-300/30 animate-spin-slow [animation-duration:20s]"></div>
+                    <h3 className="text-xl md:text-2xl font-bold">Our</h3>
+                    <h3 className="text-2xl md:text-3xl font-bold mb-2">Methodology</h3>
+                    <div className="w-12 h-1 bg-white/50 rounded-full my-2"></div>
+                    <p className="text-xs md:text-sm opacity-90 font-medium">4 Steps to Success</p>
+                  </div>
+                </div>
+              </div>
+
+              {/* Steps - Circle Layout */}
+              <div className="relative w-full h-full">
+                {methodology.map((step, index) => {
+                  const angle = (index * 90) - 45;
+                  const radius = 350;
+                  const x = Math.sin(angle * (Math.PI / 180)) * radius;
+                  const y = -Math.cos(angle * (Math.PI / 180)) * radius;
                   
                   return (
-                    <path
+                    <div 
                       key={index}
-                      d={`M ${x1} ${y1} A 40 40 0 0 1 ${x2} ${y2}`}
-                      fill="none"
-                      stroke="url(#gradient)"
-                      strokeWidth="1.5"
-                      strokeDasharray="3,4"
-                      strokeLinecap="round"
-                      opacity="0.6"
-                      className="transition-all duration-500"
+                      className="absolute w-64 p-6 bg-white/95 backdrop-blur-sm rounded-xl shadow-xl transition-all duration-500 hover:scale-105 hover:shadow-2xl z-10 border border-gray-100 group"
                       style={{
-                        strokeDashoffset: '0',
-                        strokeDasharray: '3,4',
-                        animation: `dash 20s linear infinite ${index * 0.5}s`,
+                        left: '50%',
+                        top: '50%',
+                        transform: `translate(calc(-50% + ${x}px), calc(-50% + ${y}px))`,
+                        zIndex: 10,
+                        transitionDelay: `${index * 100}ms`,
                       }}
-                    />
+                      data-aos="fade-up"
+                      data-aos-delay={index * 100}
+                    >
+                      <div className="relative">
+                        <div className="absolute -top-12 left-1/2 transform -translate-x-1/2 w-16 h-16 bg-orange-400 rounded-full flex items-center justify-center text-white font-bold text-xl mb-4 mx-auto shadow-lg group-hover:scale-110 transition-transform duration-300">
+                          {step.step}
+                          <div className="absolute -inset-1 rounded-full border-2 border-orange-300/30 animate-ping-slow opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                        </div>
+                      </div>
+                      <div className="pt-8">
+                        <h3 className="text-lg font-bold text-center text-gray-800 mb-3 group-hover:text-orange-500 transition-colors duration-300">
+                          {step.title}
+                        </h3>
+                        <p className="text-gray-600 text-center text-sm leading-relaxed">
+                          {step.description}
+                        </p>
+                      </div>
+                    </div>
                   );
                 })}
-                <defs>
-                  <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                    <stop offset="0%" stopColor="#F97316" />
-                    <stop offset="100%" stopColor="#8B5CF6" />
-                  </linearGradient>
+
+                {/* Connecting Lines - Only for desktop */}
+                <svg className="absolute top-0 left-0 w-full h-full pointer-events-none" viewBox="0 0 100 100" preserveAspectRatio="none">
+                  {methodology.map((_, index) => {
+                    if (index === methodology.length - 1) return null;
+                    const angle1 = (index * 90) - 45;
+                    const angle2 = ((index + 1) * 90) - 45;
+                    const radius = 30;
+                    
+                    const x1 = 50 + Math.sin(angle1 * (Math.PI / 180)) * radius;
+                    const y1 = 50 - Math.cos(angle1 * (Math.PI / 180)) * radius;
+                    const x2 = 50 + Math.sin(angle2 * (Math.PI / 180)) * radius;
+                    const y2 = 50 - Math.cos(angle2 * (Math.PI / 180)) * radius;
+                    
+                    return (
+                      <path
+                        key={index}
+                        d={`M ${x1} ${y1} A 40 40 0 0 1 ${x2} ${y2}`}
+                        fill="none"
+                        stroke="url(#gradient)"
+                        strokeWidth="1.5"
+                        strokeDasharray="3,4"
+                        strokeLinecap="round"
+                        opacity="0.6"
+                        className="transition-all duration-500"
+                        style={{
+                          strokeDashoffset: '0',
+                          strokeDasharray: '3,4',
+                          animation: `dash 20s linear infinite ${index * 0.5}s`,
+                        }}
+                      />
+                    );
+                  })}
+                  <defs>
+                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                      <stop offset="0%" stopColor="#F97316" />
+                      <stop offset="100%" stopColor="#8B5CF6" />
+                    </linearGradient>
                   <style jsx global>{`
                     @keyframes dash {
                       to {
@@ -727,7 +756,8 @@ export default function TheClassesLanding() {
             </div>
           </div>
         </div>
-      </section>
+      </div>
+    </section>
 
       {/* Expert Faculty */}
       <section id="faculty" className="py-16 md:py-24 px-4 bg-white relative overflow-hidden" data-animate>
