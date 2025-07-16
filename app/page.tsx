@@ -183,19 +183,19 @@ export default function TheClassesLanding() {
       name: "Vikram Sagar Sir",
       subject: "Chemistry",
       experience: "10 Years Experience",
-      image: "/placeholder.svg?height=120&width=120",
+      image: "/teacher_1-BDD-8-iz.png",
     },
     {
       name: "Rajeev Lal Sir",
       subject: "Physics",
       experience: "30 Years Experience",
-      image: "/placeholder.svg?height=120&width=120",
+      image: "/teacher_2-B4UyHFTs.png",
     },
     {
       name: "Gyanendra Singh Sir",
       subject: "Biology",
       experience: "20 Years Experience",
-      image: "/placeholder.svg?height=120&width=120",
+      image: "/teacher_3-DxMlnws7.png",
     },
   ]
 
