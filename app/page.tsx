@@ -28,6 +28,7 @@ import {
   MessageSquare as MessageSquareIcon,
   Heart as HeartIcon,
   GraduationCap as GraduationCapIcon,
+  MessageCircleMore,
 } from "lucide-react"
 import Image from "next/image"
 import Link from "next/link"
@@ -384,10 +385,166 @@ export default function TheClassesLanding() {
         </div>
       </section>
 
+      {/* Query Section */}
+      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-white">
+        <div className="container mx-auto max-w-7xl">
+          {/* Three Buttons - Responsive Layout */}
+          <div className="flex flex-row flex-wrap justify-center items-center gap-3 mb-8 sm:mb-12">
+            {/* First Button - Orange Solid */}
+            <a href="#register" className="px-4 py-2.5 sm:px-5 sm:py-3 text-sm sm:text-base bg-orange-500 hover:bg-orange-600 text-white rounded-full font-medium flex items-center justify-center gap-2 transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap">
+              <FileTextIcon className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
+              <span>Register for Quiz</span>
+            </a>
+            
+            {/* Middle Button - Orange Border with Light Orange Fill */}
+            <a href="tel:+919876543210" className="px-4 py-2.5 sm:px-5 sm:py-3 text-sm sm:text-base bg-orange-50 hover:bg-orange-100 text-orange-700 border-2 border-orange-400 rounded-full font-medium flex items-center justify-center gap-2 transition-all duration-300 shadow-sm hover:shadow whitespace-nowrap">
+              <Phone className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 text-orange-500" />
+              <span className="hidden sm:inline">Call Us: +91 98765 43210</span>
+              <span className="sm:hidden">Call Us</span>
+            </a>
+            
+            {/* Third Button - Orange Solid */}
+            <a href="mailto:info@theclasses.com" className="px-4 py-2.5 sm:px-5 sm:py-3 text-sm sm:text-base bg-orange-500 hover:bg-orange-600 text-white rounded-full font-medium flex items-center justify-center gap-2 transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap">
+              <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-white flex-shrink-0" />
+              <span className="hidden sm:inline">Email Us</span>
+              <span className="sm:hidden">Email</span>
+            </a>
+          </div>
 
+          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
+            {/* Left Content - Text and CTA */}
+            <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
+              <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
+                India's Best Interactive Classroom & Learning Platform
+              </h1>
+              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
+                "All THE Classes, a unique Delhi NCR-based startup, offers a hybrid model that combines personalized attention, like home tuition, with organised study material and systems from top institutes, all in a stress-free environment to help you achieve true success."
+              </p>
+              
+              <div className="flex flex-col xs:flex-row justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
+                <button className="px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-full font-medium shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
+                  Join Now
+                </button>
+                <button className="px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-white border-2 border-orange-500 text-orange-500 hover:bg-orange-50 rounded-full font-medium transition-colors duration-300">
+                  Get Free Demo Class
+                </button>
+              </div>
+            </div>
+
+            {/* Right Content - Form */}
+            <div className="bg-white rounded-2xl shadow-xl p-5 sm:p-6 md:p-8 border border-gray-100 w-full max-w-2xl mx-auto lg:mx-0">
+              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Send us a message</h3>
+              <form className="space-y-4 sm:space-y-5">
+                <div>
+                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1.5">Full Name</label>
+                  <input
+                    type="text"
+                    id="name"
+                    className="w-full px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-all placeholder-gray-400"
+                    placeholder="Enter your full name"
+                    required
+                  />
+                </div>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                  <div>
+                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1.5">Contact Number</label>
+                    <div className="relative">
+                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
+                        <span className="text-gray-500 text-sm">+91</span>
+                      </div>
+                      <input
+                        type="tel"
+                        id="phone"
+                        className="w-full pl-12 pr-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-all placeholder-gray-400"
+                        placeholder="98765 43210"
+                        required
+                        pattern="[0-9]{10}"
+                        maxLength={10}
+                      />
+                    </div>
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1.5">Email Address</label>
+                    <input
+                      type="email"
+                      id="email"
+                      className="w-full px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-all placeholder-gray-400"
+                      placeholder="your.email@example.com"
+                      required
+                    />
+                  </div>
+                </div>
+                
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
+                  <div>
+                    <label htmlFor="course" className="block text-sm font-medium text-gray-700 mb-1.5">Select Course</label>
+                    <select
+                      id="course"
+                      className="w-full px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-all bg-white appearance-none bg-no-repeat bg-[right_0.5rem_center] bg-[length:1.5em_1.5em]"
+                      style={{
+                        backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 20 20\'%3E%3Cpath stroke=\'%236b7280\' strokeLinecap=\'round\' strokeLinejoin=\'round\' strokeWidth=\'1.5\' d=\'M6 8l4 4 4-4\'/%3E%3C/svg%3E")'
+                      }}
+                      required
+                      defaultValue=""
+                    >
+                      <option value="" disabled>Select a course</option>
+                      <option value="neet">NEET Preparation</option>
+                      <option value="jee">JEE Preparation</option>
+                      <option value="cbse">CBSE Board</option>
+                      <option value="foundation">Foundation Course</option>
+                    </select>
+                  </div>
+                  
+                  <div>
+                    <label htmlFor="class" className="block text-sm font-medium text-gray-700 mb-1.5">Select Class</label>
+                    <select
+                      id="class"
+                      className="w-full px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-all bg-white appearance-none bg-no-repeat bg-[right_0.5rem_center] bg-[length:1.5em_1.5em]"
+                      style={{
+                        backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 20 20\'%3E%3Cpath stroke=\'%236b7280\' strokeLinecap=\'round\' strokeLinejoin=\'round\' strokeWidth=\'1.5\' d=\'M6 8l4 4 4-4\'/%3E%3C/svg%3E")'
+                      }}
+                      required
+                      defaultValue=""
+                    >
+                      <option value="" disabled>Select your class</option>
+                      <option value="9">Class 9</option>
+                      <option value="10">Class 10</option>
+                      <option value="11">Class 11</option>
+                      <option value="12">Class 12</option>
+                      <option value="dropper">Dropper</option>
+                    </select>
+                  </div>
+                </div>
+                
+                <div>
+                  <label htmlFor="query" className="block text-sm font-medium text-gray-700 mb-1.5">Your Query</label>
+                  <textarea
+                    id="query"
+                    rows={4}
+                    className="w-full px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-all placeholder-gray-400 resize-none"
+                    placeholder="Type your message here..."
+                    required
+                  ></textarea>
+                </div>
+                
+                <div className="pt-2">
+                  <button
+                    type="submit"
+                    className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-medium py-2.5 sm:py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.98] transform"
+                  >
+                    Submit Query
+                  </button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </section>
 
       {/* Success Stories */}
-      <section id="testimonials" className="py-20 px-4 bg-gradient-to-br from-orange-50 to-purple-50" data-animate>
+      <section id="testimonials" className="py-20 px-4 bg-gradient-to-br from-orange-50 to-purple-50">
         <div className="container mx-auto relative">
           <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <div className="relative z-10">
@@ -679,7 +836,7 @@ export default function TheClassesLanding() {
                         </div>
                       </div>
                       <div className="pt-8">
-                        <h3 className="text-lg font-bold text-center text-gray-800 mb-3 group-hover:text-orange-500 transition-colors duration-300">
+                        <h3 className="text-lg font-bold text-center text-gray-800 mb-3 group-hover:text-orange-500 transition-colors">
                           {step.title}
                         </h3>
                         <p className="text-gray-600 text-center text-sm leading-relaxed">
@@ -898,62 +1055,48 @@ export default function TheClassesLanding() {
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 bg-white">
         <div className="container mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12">
-            <div className="space-y-8">
-              <div>
-                <h2 className="text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
-                <p className="text-xl text-gray-600">Have questions? We're here to help.</p>
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
+            <p className="text-xl text-gray-600 max-w-3xl mx-auto">Have questions? We're here to help. Visit us or reach out through any of these channels.</p>
+          </div>
+          
+          <div className="grid lg:grid-cols-2 gap-12 items-center">
+            <div className="space-y-6">
+              <div className="flex items-center space-x-4 p-6 bg-gray-50 rounded-xl">
+                <div className="w-14 h-14 bg-orange-100 rounded-xl flex-shrink-0 flex items-center justify-center">
+                  <Phone className="w-6 h-6 text-orange-600" />
+                </div>
+                <div>
+                  <h3 className="font-bold text-gray-800 text-lg">Phone</h3>
+                  <p className="text-gray-600">+91 9625-852085</p>
+                </div>
               </div>
-              <div className="space-y-6">
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
-                    <Phone className="w-6 h-6 text-orange-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gray-800">Phone</h3>
-                    <p className="text-gray-600">+91 9625-852085</p>
-                  </div>
+              
+              <div className="flex items-center space-x-4 p-6 bg-gray-50 rounded-xl">
+                <div className="w-14 h-14 bg-orange-100 rounded-xl flex-shrink-0 flex items-center justify-center">
+                  <Mail className="w-6 h-6 text-orange-600" />
                 </div>
-                <div className="flex items-center space-x-4">
-                  <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center">
-                    <Mail className="w-6 h-6 text-orange-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gray-800">Email</h3>
-                    <p className="text-gray-600">support@alltheclasses.com</p>
-                  </div>
+                <div>
+                  <h3 className="font-bold text-gray-800 text-lg">Email</h3>
+                  <p className="text-gray-600">support@alltheclasses.com</p>
                 </div>
-                <div className="flex items-start space-x-4">
-                  <div className="w-12 h-12 bg-orange-100 rounded-lg flex items-center justify-center mt-1">
-                    <MapPin className="w-6 h-6 text-orange-600" />
-                  </div>
-                  <div>
-                    <h3 className="font-bold text-gray-800">Address</h3>
-                    <p className="text-gray-600">P-40A, Shashi Park Rd, near Ahlcon Public School, Supreme Enclave, Mayur Vihar, New Delhi, Delhi, 110091</p>
-                  </div>
+              </div>
+              
+              <div className="flex items-start space-x-4 p-6 bg-gray-50 rounded-xl">
+                <div className="w-14 h-14 bg-orange-100 rounded-xl flex-shrink-0 flex items-center justify-center mt-1">
+                  <MapPin className="w-6 h-6 text-orange-600" />
                 </div>
-                
-                {/* Map Container */}
-                <div className="mt-6 h-64 rounded-xl overflow-hidden border border-gray-200">
-                  <OSMap />
+                <div>
+                  <h3 className="font-bold text-gray-800 text-lg">Address</h3>
+                  <p className="text-gray-600">P-40A, Shashi Park Rd, near Ahlcon Public School, Supreme Enclave, Mayur Vihar, New Delhi, Delhi, 110091</p>
                 </div>
               </div>
             </div>
-            <Card className="shadow-xl border-0">
-              <CardContent className="p-8">
-                <form className="space-y-6">
-                  <div className="grid md:grid-cols-2 gap-4">
-                    <Input placeholder="Your Name" className="border-gray-200" />
-                    <Input placeholder="Your Email" type="email" className="border-gray-200" />
-                  </div>
-                  <Input placeholder="Subject" className="border-gray-200" />
-                  <Textarea placeholder="Your Message" rows={4} className="border-gray-200" />
-                  <ModernButton className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700">
-                    Send Message
-                  </ModernButton>
-                </form>
-              </CardContent>
-            </Card>
+            
+            {/* Map Container - Expanded to full height */}
+            <div className="h-full min-h-[500px] rounded-2xl overflow-hidden shadow-xl border border-gray-200">
+              <OSMap />
+            </div>
           </div>
         </div>
       </section>
@@ -1035,6 +1178,21 @@ export default function TheClassesLanding() {
           Quiz
         </ModernButton>
       </div>
+
+      {/* Floating WhatsApp Button */}
+      <a 
+        href="https://wa.me/919625852085" 
+        target="_blank" 
+        rel="noopener noreferrer"
+        className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105"
+        aria-label="Chat with us on WhatsApp"
+      >
+        <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <path d="M17.498 6.563C15.333 4.427 12.513 3.25 9.647 3.25c-5.1 0-9.25 4.15-9.25 9.25 0 1.63.44 3.25 1.28 4.67l-1.35 4.2 4.37-1.32c1.38.75 2.9 1.15 4.45 1.15 5.1 0 9.25-4.15 9.25-9.25 0-2.86-1.32-5.55-3.5-7.44z" fill="#fff"/>
+          <path d="M20.218 3.78c-2.35-2.35-5.47-3.64-8.79-3.64-6.63 0-12 5.37-12 12 0 2.12.56 4.19 1.62 6l-1.69 5.25 5.45-1.65c1.75 1.01 3.74 1.54 5.8 1.54 6.63 0 12-5.37 12-12 0-3.31-1.35-6.42-3.73-8.75zm-10.57 15.22h-.4c-1.25 0-2.48-.31-3.57-.9l-.26-.15-2.75.8.73-2.64-.17-.28c-.82-1.25-1.25-2.67-1.25-4.14 0-4.64 3.8-8.44 8.44-8.44 2.25 0 4.37.88 5.96 2.47 1.59 1.59 2.47 3.7 2.47 5.96 0 4.65-3.8 8.44-8.45 8.44z" fill="#fff"/>
+          <path d="M17.848 14.38c-.22-.11-1.3-.64-1.5-.72-.2-.08-.35-.12-.5.12-.15.24-.57.72-.7.86-.13.14-.26.16-.49.05-.23-.1-.97-.36-1.85-1.14-.68-.61-1.14-1.36-1.27-1.59-.13-.23-.01-.36.1-.47.1-.1.23-.26.35-.39.12-.13.16-.22.24-.37.08-.15.04-.28-.02-.39-.06-.11-.5-1.2-.69-1.64-.18-.44-.37-.38-.5-.39-.13-.01-.28-.01-.43-.01-.15 0-.38.06-.59.3-.2.25-.77.75-.77 1.83s.79 2.12.9 2.27c.11.15 1.56 2.38 3.77 3.34.53.23.94.37 1.26.47.53.17 1.01.15 1.39.09.43-.07 1.3-.53 1.48-1.05.18-.52.18-.96.13-1.05-.05-.09-.18-.14-.39-.23z" fill="#fff"/>
+        </svg>
+      </a>
     </div>
   )
 }
