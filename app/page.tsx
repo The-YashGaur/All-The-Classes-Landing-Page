@@ -205,15 +205,21 @@ export default function TheClassesLanding() {
     <div className="min-h-screen">
       {/* Header */}
       {/* Navigation */}
-      <header className="fixed w-full bg-white shadow-sm z-50">
-        <div className="container mx-auto px-4">
-          <div className="flex items-center justify-between h-20">
+      <header className="fixed w-full bg-white/80 backdrop-blur-md z-50 shadow-sm">
+        <div className="container mx-auto px-4 sm:px-6">
+          <div className="flex items-center justify-between h-16 sm:h-20">
             {/* Logo */}
-            <div className="flex items-center space-x-3">
-              <div className="w-12 h-12 bg-orange-400 rounded-xl flex items-center justify-center">
-                <GraduationCapIcon className="w-6 h-6 text-white" />
-              </div>
-              <span className="text-2xl font-bold text-gray-800">THE Classes</span>
+            <div className="flex-shrink-0">
+              <a href="#" className="flex items-center">
+                <Image
+                  src="/images/Logo.png"
+                  alt="THE Classes Logo"
+                  width={120}
+                  height={40}
+                  className="h-10 sm:h-12 w-auto"
+                  priority
+                />
+              </a>
             </div>
 
             {/* Desktop Navigation */}
@@ -297,22 +303,71 @@ export default function TheClassesLanding() {
       )}
 
       {/* Hero Section */}
-      <section className="relative min-h-screen flex items-center pt-32 pb-20 overflow-hidden bg-gradient-to-br from-orange-50 to-orange-100">
+      <section className="relative min-h-screen flex items-center pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 overflow-hidden bg-gradient-to-br from-orange-50 to-orange-100">
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5"></div>
 
-        <div className="container mx-auto px-4 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
+        <div className="container mx-auto px-4 sm:px-6 relative z-10">
+          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
             <div className="max-w-2xl">
-              <span className="inline-block bg-orange-100 text-orange-600 text-sm font-medium px-4 py-1.5 rounded-full mb-4">
+              <span className="inline-block bg-orange-100 text-orange-600 text-xs sm:text-sm font-medium px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-3 sm:mb-4">
                 Best Coaching in the City
               </span>
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-6">
-                Achieve Your{" "}
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-orange-500 to-orange-600">
-                  Academic Dreams
-                </span>
+              <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4 sm:mb-6">
+                Achieve Your <span className="text-orange-600">Academic Dreams</span>
               </h1>
+
+              {/* Coaching Qualities */}
+              <div className="grid grid-cols-1 xs:grid-cols-2 gap-3 sm:gap-4 mb-6 sm:mb-8">
+                <div className="flex items-start space-x-2 p-2 sm:p-3 bg-white/50 sm:bg-white/50 rounded-lg backdrop-blur-sm">
+                  <div className="flex-shrink-0 mt-0.5 sm:mt-1">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-orange-100 flex items-center justify-center">
+                      <Users className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-600" />
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="text-sm sm:text-base font-medium text-gray-900 leading-tight">Small Batches of 8</h4>
+                    <p className="text-xs sm:text-sm text-gray-600">Personalized attention</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-2 p-2 sm:p-3 bg-white/50 sm:bg-white/50 rounded-lg backdrop-blur-sm">
+                  <div className="flex-shrink-0 mt-0.5 sm:mt-1">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-orange-100 flex items-center justify-center">
+                      <Award className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-600" />
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="text-sm sm:text-base font-medium text-gray-900 leading-tight">Expert Faculty</h4>
+                    <p className="text-xs sm:text-sm text-gray-600">Experienced educators</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-2 p-2 sm:p-3 bg-white/50 sm:bg-white/50 rounded-lg backdrop-blur-sm">
+                  <div className="flex-shrink-0 mt-0.5 sm:mt-1">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-orange-100 flex items-center justify-center">
+                      <BookOpen className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-600" />
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="text-sm sm:text-base font-medium text-gray-900 leading-tight">Study Material</h4>
+                    <p className="text-xs sm:text-sm text-gray-600">Comprehensive content</p>
+                  </div>
+                </div>
+                
+                <div className="flex items-start space-x-2 p-2 sm:p-3 bg-white/50 sm:bg-white/50 rounded-lg backdrop-blur-sm">
+                  <div className="flex-shrink-0 mt-0.5 sm:mt-1">
+                    <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-orange-100 flex items-center justify-center">
+                      <MessageSquareIcon className="w-3.5 h-3.5 sm:w-4 sm:h-4 text-orange-600" />
+                    </div>
+                  </div>
+                  <div>
+                    <h4 className="text-sm sm:text-base font-medium text-gray-900 leading-tight">Doubt Solving</h4>
+                    <p className="text-xs sm:text-sm text-gray-600">Regular sessions</p>
+                  </div>
+                </div>
+              </div>
+
               <p className="text-lg text-gray-700 leading-relaxed mb-8 max-w-lg">
                 Join small batches, expert teachers, and a stress-free learning environment designed for NEET, JEE, and CBSE success.
               </p>
@@ -348,206 +403,106 @@ export default function TheClassesLanding() {
               </div>
             </div>
 
-            {/* Right Content - Image Carousel */}
-            <div className="relative">
-              <div className="absolute -inset-4 bg-gradient-to-r from-orange-300 to-orange-400 rounded-3xl opacity-20 blur-3xl -z-10"></div>
-              <div className="relative rounded-2xl overflow-hidden shadow-2xl border-4 border-white">
-                <ImageCarousel />
-              </div>
-            </div>
-          </div>
-
-          {/* Features Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mt-16 max-w-6xl mx-auto">
-            <div className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 group">
-              <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-orange-500 group-hover:text-white transition-colors duration-300">
-                <BookOpen className="w-7 h-7 text-orange-500 group-hover:text-white transition-colors duration-300" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Expert Faculty</h3>
-              <p className="text-gray-600">Learn from experienced educators with proven track records</p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 group">
-              <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-orange-500 group-hover:text-white transition-colors duration-300">
-                <Users className="w-7 h-7 text-orange-500 group-hover:text-white transition-colors duration-300" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Small Batches</h3>
-              <p className="text-gray-600">Personalized attention with limited students per batch</p>
-            </div>
-            
-            <div className="bg-white p-6 rounded-2xl shadow-sm hover:shadow-md transition-shadow duration-300 group">
-              <div className="w-14 h-14 bg-orange-100 rounded-xl flex items-center justify-center mb-4 group-hover:bg-orange-500 group-hover:text-white transition-colors duration-300">
-                <Award className="w-7 h-7 text-orange-500 group-hover:text-white transition-colors duration-300" />
-              </div>
-              <h3 className="text-xl font-bold text-gray-800 mb-2">Proven Results</h3>
-              <p className="text-gray-600">Consistent top performers in board and competitive exams</p>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Query Section */}
-      <section className="py-12 sm:py-16 lg:py-20 px-4 sm:px-6 bg-white">
-        <div className="container mx-auto max-w-7xl">
-          {/* Three Buttons - Responsive Layout */}
-          <div className="flex flex-row flex-wrap justify-center items-center gap-3 mb-8 sm:mb-12">
-            {/* First Button - Orange Solid */}
-            <a href="#register" className="px-4 py-2.5 sm:px-5 sm:py-3 text-sm sm:text-base bg-orange-500 hover:bg-orange-600 text-white rounded-full font-medium flex items-center justify-center gap-2 transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap">
-              <FileTextIcon className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0" />
-              <span>Register for Quiz</span>
-            </a>
-            
-            {/* Middle Button - Orange Border with Light Orange Fill */}
-            <a href="tel:+919876543210" className="px-4 py-2.5 sm:px-5 sm:py-3 text-sm sm:text-base bg-orange-50 hover:bg-orange-100 text-orange-700 border-2 border-orange-400 rounded-full font-medium flex items-center justify-center gap-2 transition-all duration-300 shadow-sm hover:shadow whitespace-nowrap">
-              <Phone className="w-4 h-4 sm:w-5 sm:h-5 flex-shrink-0 text-orange-500" />
-              <span className="hidden sm:inline">Call Us: +91 98765 43210</span>
-              <span className="sm:hidden">Call Us</span>
-            </a>
-            
-            {/* Third Button - Orange Solid */}
-            <a href="mailto:info@theclasses.com" className="px-4 py-2.5 sm:px-5 sm:py-3 text-sm sm:text-base bg-orange-500 hover:bg-orange-600 text-white rounded-full font-medium flex items-center justify-center gap-2 transition-all duration-300 shadow-md hover:shadow-lg whitespace-nowrap">
-              <Mail className="w-4 h-4 sm:w-5 sm:h-5 text-white flex-shrink-0" />
-              <span className="hidden sm:inline">Email Us</span>
-              <span className="sm:hidden">Email</span>
-            </a>
-          </div>
-
-          <div className="grid lg:grid-cols-2 gap-8 md:gap-12 items-center">
-            {/* Left Content - Text and CTA */}
-            <div className="space-y-6 sm:space-y-8 text-center lg:text-left">
-              <h1 className="text-2xl xs:text-3xl sm:text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-                India's Best Interactive Classroom & Learning Platform
-              </h1>
-              <p className="text-base sm:text-lg text-gray-600 leading-relaxed">
-                "All THE Classes, a unique Delhi NCR-based startup, offers a hybrid model that combines personalized attention, like home tuition, with organised study material and systems from top institutes, all in a stress-free environment to help you achieve true success."
-              </p>
-              
-              <div className="flex flex-col xs:flex-row justify-center lg:justify-start gap-3 sm:gap-4 pt-2">
-                <button className="px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white rounded-full font-medium shadow-md hover:shadow-lg transform hover:-translate-y-0.5 transition-all duration-300">
-                  Join Now
-                </button>
-                <button className="px-5 sm:px-6 py-2.5 sm:py-3 text-sm sm:text-base bg-white border-2 border-orange-500 text-orange-500 hover:bg-orange-50 rounded-full font-medium transition-colors duration-300">
-                  Get Free Demo Class
-                </button>
-              </div>
-            </div>
-
-            {/* Right Content - Form */}
-            <div className="bg-white rounded-2xl shadow-xl p-5 sm:p-6 md:p-8 border border-gray-100 w-full max-w-2xl mx-auto lg:mx-0">
-              <h3 className="text-xl sm:text-2xl font-bold text-gray-900 mb-4 sm:mb-6">Send us a message</h3>
-              <form className="space-y-4 sm:space-y-5">
-                <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-1.5">Full Name</label>
-                  <input
-                    type="text"
-                    id="name"
-                    className="w-full px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-all placeholder-gray-400"
-                    placeholder="Enter your full name"
-                    required
-                  />
-                </div>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-                  <div>
-                    <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-1.5">Contact Number</label>
-                    <div className="relative">
-                      <div className="absolute inset-y-0 left-0 pl-3 flex items-center pointer-events-none">
-                        <span className="text-gray-500 text-sm">+91</span>
-                      </div>
-                      <input
-                        type="tel"
-                        id="phone"
-                        className="w-full pl-12 pr-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-all placeholder-gray-400"
-                        placeholder="98765 43210"
-                        required
-                        pattern="[0-9]{10}"
-                        maxLength={10}
-                      />
-                    </div>
+            {/* Right Content - Query Form with Floating Labels */}
+            <div className="relative mt-8 lg:mt-0">
+              <div className="absolute -inset-2 sm:-inset-4 bg-gradient-to-r from-orange-100 to-orange-200 rounded-3xl opacity-50 blur-3xl -z-10"></div>
+              <div className="bg-white rounded-2xl shadow-xl sm:shadow-2xl p-4 sm:p-6 border border-gray-100 overflow-hidden">
+                <h3 className="text-lg sm:text-xl font-bold text-gray-900 mb-6 text-center">Request a Callback</h3>
+                <form className="space-y-5">
+                  <div className="relative z-0 group">
+                    <input
+                      type="text"
+                      id="name"
+                      className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-orange-500 peer"
+                      placeholder=" "
+                      required
+                    />
+                    <label 
+                      htmlFor="name"
+                      className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    >
+                      Full Name
+                    </label>
                   </div>
                   
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1.5">Email Address</label>
+                  <div className="relative z-0 group">
+                    <input
+                      type="tel"
+                      id="phone"
+                      className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-orange-500 peer"
+                      placeholder=" "
+                      required
+                    />
+                    <label 
+                      htmlFor="phone"
+                      className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    >
+                      Contact Number
+                    </label>
+                  </div>
+                  
+                  <div className="relative z-0 group">
                     <input
                       type="email"
                       id="email"
-                      className="w-full px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-all placeholder-gray-400"
-                      placeholder="your.email@example.com"
+                      className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-orange-500 peer"
+                      placeholder=" "
                       required
                     />
+                    <label 
+                      htmlFor="email"
+                      className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    >
+                      Email Address
+                    </label>
                   </div>
-                </div>
-                
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 sm:gap-5">
-                  <div>
-                    <label htmlFor="course" className="block text-sm font-medium text-gray-700 mb-1.5">Select Course</label>
+                  
+                  <div className="relative z-0 group">
                     <select
                       id="course"
-                      className="w-full px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-all bg-white appearance-none bg-no-repeat bg-[right_0.5rem_center] bg-[length:1.5em_1.5em]"
-                      style={{
-                        backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 20 20\'%3E%3Cpath stroke=\'%236b7280\' strokeLinecap=\'round\' strokeLinejoin=\'round\' strokeWidth=\'1.5\' d=\'M6 8l4 4 4-4\'/%3E%3C/svg%3E")'
-                      }}
+                      className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-orange-500 peer"
                       required
                       defaultValue=""
                     >
-                      <option value="" disabled>Select a course</option>
+                      <option value="" disabled></option>
                       <option value="neet">NEET Preparation</option>
                       <option value="jee">JEE Preparation</option>
                       <option value="cbse">CBSE Board</option>
-                      <option value="foundation">Foundation Course</option>
                     </select>
+                    <label 
+                      htmlFor="course"
+                      className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
+                    >
+                      Select Course
+                    </label>
                   </div>
                   
-                  <div>
-                    <label htmlFor="class" className="block text-sm font-medium text-gray-700 mb-1.5">Select Class</label>
-                    <select
-                      id="class"
-                      className="w-full px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-all bg-white appearance-none bg-no-repeat bg-[right_0.5rem_center] bg-[length:1.5em_1.5em]"
-                      style={{
-                        backgroundImage: 'url("data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' fill=\'none\' viewBox=\'0 0 20 20\'%3E%3Cpath stroke=\'%236b7280\' strokeLinecap=\'round\' strokeLinejoin=\'round\' strokeWidth=\'1.5\' d=\'M6 8l4 4 4-4\'/%3E%3C/svg%3E")'
-                      }}
+                  <div className="relative z-0 group pt-2">
+                    <textarea
+                      id="message"
+                      rows={3}
+                      className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-orange-500 peer"
+                      placeholder=" "
                       required
-                      defaultValue=""
+                    ></textarea>
+                    <label 
+                      htmlFor="message"
+                      className="peer-focus:font-medium absolute text-sm text-gray-500 duration-300 transform -translate-y-6 scale-75 top-3 -z-10 origin-[0] peer-focus:left-0 peer-focus:text-orange-500 peer-placeholder-shown:scale-100 peer-placeholder-shown:translate-y-0 peer-focus:scale-75 peer-focus:-translate-y-6"
                     >
-                      <option value="" disabled>Select your class</option>
-                      <option value="9">Class 9</option>
-                      <option value="10">Class 10</option>
-                      <option value="11">Class 11</option>
-                      <option value="12">Class 12</option>
-                      <option value="dropper">Dropper</option>
-                    </select>
+                      Your Message
+                    </label>
                   </div>
-                </div>
-                
-                <div>
-                  <label htmlFor="query" className="block text-sm font-medium text-gray-700 mb-1.5">Your Query</label>
-                  <textarea
-                    id="query"
-                    rows={4}
-                    className="w-full px-4 py-2.5 sm:py-3 text-sm sm:text-base rounded-lg border border-gray-300 focus:ring-2 focus:ring-orange-500 focus:border-orange-500 outline-none transition-all placeholder-gray-400 resize-none"
-                    placeholder="Type your message here..."
-                    required
-                  ></textarea>
-                </div>
-                
-                <div className="pt-2">
+                  
                   <button
                     type="submit"
-                    className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-medium py-2.5 sm:py-3 px-6 rounded-lg transition-all duration-300 shadow-md hover:shadow-lg active:scale-[0.98] transform"
+                    className="w-full mt-6 bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white font-medium py-3 px-6 rounded-lg transition-all duration-300 transform hover:scale-[1.02] focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2 text-sm sm:text-base"
                   >
                     Submit Query
                   </button>
-                </div>
-              </form>
+                </form>
+              </div>
             </div>
           </div>
-        </div>
-      </section>
-
-      {/* Courses Section */}
-      <section className="py-20 px-4 bg-white">
-        <div className="container mx-auto">
-          <CoursesSection />
         </div>
       </section>
 
@@ -616,6 +571,13 @@ export default function TheClassesLanding() {
               ))}
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Courses Section */}
+      <section className="py-20 px-4 bg-white">
+        <div className="container mx-auto">
+          <CoursesSection />
         </div>
       </section>
 
@@ -1117,11 +1079,14 @@ export default function TheClassesLanding() {
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
             {/* Brand Info */}
             <div className="space-y-5">
-              <div className="flex items-center space-x-3">
-                <div className="w-12 h-12 bg-gradient-to-r from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg">
-                  <GraduationCapIcon className="w-6 h-6 text-white" />
-                </div>
-                <span className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-orange-200 bg-clip-text text-transparent">THE Classes</span>
+              <div className="flex items-center">
+                <Image 
+                  src="/images/Logo.png" 
+                  alt="THE Classes Logo" 
+                  width={200} 
+                  height={80}
+                  className="h-12 w-auto"
+                />
               </div>
               <p className="text-gray-400 text-sm leading-relaxed">
                 Empowering students to achieve their academic dreams through personalized coaching and innovative learning approaches.
