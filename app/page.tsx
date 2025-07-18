@@ -204,8 +204,8 @@ export default function TheClassesLanding() {
   return (
     <div className="min-h-screen">
       {/* Header */}
-      {/* Navbar */}
-      <header className="fixed w-full z-50 bg-white/80 backdrop-blur-md shadow-sm">
+      {/* Navigation */}
+      <header className="fixed w-full bg-white shadow-sm z-50">
         <div className="container mx-auto px-4">
           <div className="flex items-center justify-between h-20">
             {/* Logo */}
@@ -1102,8 +1102,10 @@ export default function TheClassesLanding() {
             </div>
             
             {/* Map Container - Expanded to full height */}
-            <div className="h-full min-h-[500px] rounded-2xl overflow-hidden shadow-xl border border-gray-200">
-              <OSMap />
+            <div className="h-full min-h-[500px] rounded-2xl overflow-hidden shadow-xl border border-gray-200 relative z-10">
+              <div className="relative h-full w-full">
+                <OSMap />
+              </div>
             </div>
           </div>
         </div>
