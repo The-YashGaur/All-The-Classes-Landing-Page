@@ -373,20 +373,21 @@ export default function TheClassesLanding() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <ModernButton 
-                  size="lg" 
-                  className="bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white text-lg px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300"
+                <button 
+                  className="group relative inline-flex items-center justify-center overflow-hidden bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white text-lg font-medium px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto"
                 >
-                  Register Now
-                  <ArrowRight className="ml-2 w-5 h-5" />
-                </ModernButton>
-                <ModernButton 
-                  size="lg" 
-                  variant="outline" 
-                  className="border-2 border-orange-500 text-orange-600 hover:bg-orange-50 text-lg px-8 py-4 rounded-full transition-all duration-300"
+                  <span className="relative z-10 flex items-center">
+                    Register Now
+                    <ArrowRight className="ml-2 w-5 h-5 flex-shrink-0" />
+                  </span>
+                </button>
+                <button 
+                  className="group relative inline-flex items-center justify-center overflow-hidden border-2 border-orange-500 text-orange-600 hover:bg-orange-50 text-lg font-medium px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto"
                 >
-                  View Courses
-                </ModernButton>
+                  <span className="relative z-10">
+                    View Courses
+                  </span>
+                </button>
               </div>
 
               {/* Stats */}
