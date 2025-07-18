@@ -47,10 +47,92 @@ const OSMap = dynamic(() => import('@/components/OSMap'), {
   ),
 });
 
+// Testimonial Card Component
+const TestimonialCard = ({ testimonial }: { testimonial: any }) => (
+  <div className="relative group h-full">
+    <Card className="h-full p-6 group-hover:scale-[1.02] transition-all duration-300 border-0 shadow-lg bg-white/80 backdrop-blur-sm">
+      <CardContent className="p-0">
+        <div className="relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-orange-400/10 to-purple-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+          <div className="flex flex-col items-center text-center space-y-6">
+            <div className="relative">
+              <Image
+                src={testimonial.image || "/placeholder.svg"}
+                alt={testimonial.name}
+                width={120}
+                height={120}
+                className="rounded-full border-4 border-orange-300 shadow-lg"
+              />
+              <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-r from-orange-500 to-purple-500 rounded-full flex items-center justify-center">
+                <Star className="w-4 h-4 text-white" />
+              </div>
+            </div>
+            <div className="space-y-4">
+              <h3 className="text-xl font-bold text-gray-800">{testimonial.name}</h3>
+              <p className="text-orange-600 font-medium">{testimonial.course}</p>
+            </div>
+            <div className="prose prose-sm prose-invert max-w-none text-center">
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: testimonial.feedback.replace(
+                    /\*\*(.*?)\*\*/g,
+                    '<strong class="text-orange-600">$1</strong>',
+                  ),
+                }}
+              />
+            </div>
+            <div className="flex justify-center mt-4">
+              {[...Array(5)].map((_, i) => (
+                <Star
+                  key={i}
+                  className={`w-6 h-6 fill-current transition-colors ${
+                    i < 4 ? 'text-yellow-400' : 'text-yellow-300'
+                  }`}
+                />
+              ))}
+            </div>
+          </div>
+        </div>
+      </CardContent>
+    </Card>
+    <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
+  </div>
+);
+
 export default function TheClassesLanding() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false)
-  const [isVisible, setIsVisible] = useState({})
-  const [isLoading, setIsLoading] = useState(true)
+  const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isVisible, setIsVisible] = useState({});
+  const [isLoading, setIsLoading] = useState(true);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const [touchStart, setTouchStart] = useState(0);
+  const [touchEnd, setTouchEnd] = useState(0);
+
+  // Handle touch start for mobile swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    setTouchStart(e.targetTouches[0].clientX);
+  };
+
+  // Handle touch move for mobile swipe
+  const handleTouchMove = (e: React.TouchEvent) => {
+    setTouchEnd(e.targetTouches[0].clientX);
+  };
+
+  // Handle touch end to determine swipe direction
+  const handleTouchEnd = () => {
+    if (touchStart - touchEnd > 50) {
+      // Swipe left
+      setCurrentSlide(prev => 
+        prev === testimonials.length - 1 ? 0 : prev + 1
+      );
+    }
+
+    if (touchStart - touchEnd < -50) {
+      // Swipe right
+      setCurrentSlide(prev => 
+        prev === 0 ? testimonials.length - 1 : prev - 1
+      );
+    }
+  };
 
   useEffect(() => {
     // Simulate loading state
@@ -518,63 +600,62 @@ export default function TheClassesLanding() {
           <div className="absolute inset-0 bg-gradient-to-r from-purple-500/10 to-orange-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
           <div className="relative z-10">
             <div className="text-center mb-16">
-              <div className="inline-block  text-orange-500 px-6 py-1 rounded-full mb-4">
+              <div className="inline-block text-orange-500 px-6 py-1 rounded-full mb-4">
                 <h2 className="text-4xl font-bold">Success Stories</h2>
               </div>
               <p className="text-xl text-black">Hear from our successful students</p>
             </div>
 
-            <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+            {/* Desktop Grid - Hidden on mobile */}
+            <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
               {testimonials.map((testimonial, index) => (
-                <div key={index} className="relative group">
-                  <Card className="h-full p-6 group-hover:scale-[1.02] transition-all duration-300 border-0 shadow-lg bg-white/80 backdrop-blur-sm">
-                    <CardContent className="p-0">
-                      <div className="relative overflow-hidden">
-                        <div className="absolute inset-0 bg-gradient-to-r from-orange-400/10 to-purple-400/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
-                        <div className="flex flex-col items-center text-center space-y-6">
-                          <div className="relative">
-                            <Image
-                              src={testimonial.image || "/placeholder.svg"}
-                              alt={testimonial.name}
-                              width={120}
-                              height={120}
-                              className="rounded-full border-4 border-orange-300 shadow-lg"
-                            />
-                            <div className="absolute -top-3 -right-3 w-8 h-8 bg-gradient-to-r from-orange-500 to-purple-500 rounded-full flex items-center justify-center">
-                              <Star className="w-4 h-4 text-white" />
-                            </div>
-                          </div>
-                          <div className="space-y-4">
-                            <h3 className="text-xl font-bold text-gray-800">{testimonial.name}</h3>
-                            <p className="text-orange-600 font-medium">{testimonial.course}</p>
-                          </div>
-                          <div className="prose prose-sm prose-invert max-w-none text-center">
-                            <p
-                              dangerouslySetInnerHTML={{
-                                __html: testimonial.feedback.replace(
-                                  /\*\*(.*?)\*\*/g,
-                                  '<strong class="text-orange-600">$1</strong>',
-                                ),
-                              }}
-                            />
-                          </div>
-                          <div className="flex justify-center mt-4">
-                            {[...Array(5)].map((_, i) => (
-                              <Star
-                                key={i}
-                                className={`w-6 h-6 fill-current transition-colors ${
-                                  i < 4 ? 'text-yellow-400' : 'text-yellow-300'
-                                }`}
-                              />
-                            ))}
-                          </div>
-                        </div>
-                      </div>
-                    </CardContent>
-                  </Card>
-                  <div className="absolute inset-0 bg-gradient-to-r from-orange-500/10 to-purple-500/10 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg"></div>
-                </div>
+                <TestimonialCard key={`desktop-${index}`} testimonial={testimonial} />
               ))}
+            </div>
+
+            {/* Mobile Carousel */}
+            <div className="md:hidden relative overflow-hidden">
+              <div className="flex transition-transform duration-300 ease-out" 
+                   style={{ transform: `translateX(-${currentSlide * 100}%)` }}
+                   onTouchStart={handleTouchStart}
+                   onTouchMove={handleTouchMove}
+                   onTouchEnd={handleTouchEnd}>
+                {testimonials.map((testimonial, index) => (
+                  <div key={`mobile-${index}`} className="w-full flex-shrink-0 px-2">
+                    <TestimonialCard testimonial={testimonial} />
+                  </div>
+                ))}
+              </div>
+              
+              {/* Mobile Navigation Dots */}
+              <div className="flex justify-center mt-8 space-x-2">
+                {testimonials.map((_, index) => (
+                  <button
+                    key={index}
+                    onClick={() => setCurrentSlide(index)}
+                    className={`w-3 h-3 rounded-full transition-colors ${
+                      index === currentSlide ? 'bg-orange-500' : 'bg-gray-300'
+                    }`}
+                    aria-label={`Go to slide ${index + 1}`}
+                  />
+                ))}
+              </div>
+              
+              {/* Navigation Arrows */}
+              <button 
+                onClick={() => setCurrentSlide(prev => (prev === 0 ? testimonials.length - 1 : prev - 1))}
+                className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg z-10"
+                aria-label="Previous testimonial"
+              >
+                <ArrowRight className="w-6 h-6 rotate-180 text-orange-500" />
+              </button>
+              <button 
+                onClick={() => setCurrentSlide(prev => (prev === testimonials.length - 1 ? 0 : prev + 1))}
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg z-10"
+                aria-label="Next testimonial"
+              >
+                <ArrowRight className="w-6 h-6 text-orange-500" />
+              </button>
             </div>
           </div>
         </div>
