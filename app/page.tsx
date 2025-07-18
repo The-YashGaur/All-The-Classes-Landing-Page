@@ -35,6 +35,7 @@ import Link from "next/link"
 import { useState, useEffect } from "react"
 import dynamic from 'next/dynamic';
 import { ImageCarousel } from '@/components/ImageCarousel';
+import { CoursesSection } from '@/components/CoursesSection';
 
 // Dynamically import the OSMap component with SSR disabled
 const OSMap = dynamic(() => import('@/components/OSMap'), {
@@ -540,6 +541,13 @@ export default function TheClassesLanding() {
               </form>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Courses Section */}
+      <section className="py-20 px-4 bg-white">
+        <div className="container mx-auto">
+          <CoursesSection />
         </div>
       </section>
 
