@@ -414,9 +414,10 @@ export default function TheClassesLanding() {
                     <input
                       type="text"
                       id="name"
-                      className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-orange-500 peer"
+                      className="block py-2.5 px-0 w-full text-base sm:text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-orange-500 peer"
                       placeholder=" "
                       required
+                      style={{ fontSize: '16px' }}
                     />
                     <label 
                       htmlFor="name"
@@ -430,9 +431,11 @@ export default function TheClassesLanding() {
                     <input
                       type="tel"
                       id="phone"
-                      className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-orange-500 peer"
+                      className="block py-2.5 px-0 w-full text-base sm:text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-orange-500 peer"
                       placeholder=" "
                       required
+                      style={{ fontSize: '16px' }}
+                      inputMode="tel"
                     />
                     <label 
                       htmlFor="phone"
@@ -446,9 +449,11 @@ export default function TheClassesLanding() {
                     <input
                       type="email"
                       id="email"
-                      className="block py-2.5 px-0 w-full text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-orange-500 peer"
+                      className="block py-2.5 px-0 w-full text-base sm:text-sm text-gray-900 bg-transparent border-0 border-b-2 border-gray-300 appearance-none focus:outline-none focus:ring-0 focus:border-orange-500 peer"
                       placeholder=" "
                       required
+                      style={{ fontSize: '16px' }}
+                      inputMode="email"
                     />
                     <label 
                       htmlFor="email"
