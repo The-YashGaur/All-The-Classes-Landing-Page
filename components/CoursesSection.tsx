@@ -1,6 +1,6 @@
-import { useState, useMemo, useCallback, useEffect } from 'react';
+import { useState } from 'react';
 import Image from 'next/image';
-import { Star, ChevronLeft, ChevronRight } from 'lucide-react';
+import { Star } from 'lucide-react';
 
 interface Course {
   id: number;
@@ -8,9 +8,9 @@ interface Course {
   description: string;
   image: string;
   category: string;
-  duration: string;
-  students: number;
+  price: string;
   rating: number;
+  reviews: number;
 }
 
 interface CourseCardProps {
@@ -19,32 +19,34 @@ interface CourseCardProps {
 }
 
 const CourseCard = ({ course, className = '' }: CourseCardProps) => (
-  <div className={`bg-white rounded-xl shadow-md overflow-hidden hover:shadow-lg transition-shadow duration-300 h-full flex flex-col ${className}`}>
-    <div className="h-48 bg-gray-200 relative">
+  <div className={`bg-white rounded-lg overflow-hidden shadow-sm border border-gray-100 hover:shadow-md transition-all duration-300 hover:-translate-y-1 ${className}`}>
+    <div className="relative h-40 bg-gray-100">
       <Image 
         src={course.image} 
         alt={course.title}
         fill
-        className="object-cover hover:scale-105 transition-transform duration-300"
+        className="object-cover"
       />
-      <div className="absolute top-2 right-2 bg-orange-500 text-white text-xs font-bold px-2 py-1 rounded">
+      <div className="absolute top-3 right-3 bg-white/90 backdrop-blur-sm text-xs font-medium px-2 py-1 rounded-full">
         {course.category}
       </div>
     </div>
-    <div className="p-6 flex flex-col flex-grow">
-      <div className="flex justify-between items-start mb-2">
-        <h3 className="text-xl font-bold text-gray-900">{course.title}</h3>
-        <div className="flex items-center bg-green-100 text-green-800 text-sm font-semibold px-2 py-1 rounded">
-          <Star className="w-4 h-4 mr-1 fill-current" />
-          {course.rating}
+    <div className="p-4">
+      <h3 className="font-semibold text-gray-900 mb-1 line-clamp-2 h-12">{course.title}</h3>
+      <p className="text-sm text-gray-500 mb-3 line-clamp-2 h-10">{course.description}</p>
+      
+      <div className="flex items-center justify-between mt-4">
+        <div className="flex items-center">
+          <div className="flex items-center text-yellow-500 mr-2">
+            <Star className="w-4 h-4 fill-current" />
+            <span className="text-sm font-medium text-gray-900 ml-1">{course.rating}</span>
+          </div>
+          <span className="text-xs text-gray-400">({course.reviews})</span>
         </div>
+        <span className="text-sm font-semibold text-gray-900">{course.price}</span>
       </div>
-      <p className="text-gray-600 mb-4 line-clamp-2">{course.description}</p>
-      <div className="flex justify-between items-center text-sm text-gray-500 mt-auto">
-        <span>⏱️ {course.duration}</span>
-        <span>👥 {course.students}+ Students</span>
-      </div>
-      <button className="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white font-medium py-2 px-4 rounded-lg transition-colors duration-200">
+      
+      <button className="w-full mt-4 bg-blue-600 hover:bg-blue-700 text-white text-sm font-medium py-2 px-4 rounded-md transition-colors">
         Enroll Now
       </button>
     </div>
@@ -52,44 +54,8 @@ const CourseCard = ({ course, className = '' }: CourseCardProps) => (
 );
 
 export const CoursesSection = () => {
-  const [selectedCategory, setSelectedCategory] = useState('All');
-  const [searchQuery, setSearchQuery] = useState('');
-  const [currentSlide, setCurrentSlide] = useState(0);
-  const [touchStart, setTouchStart] = useState(0);
-  const [touchEnd, setTouchEnd] = useState(0);
+  const [selectedCategory, setSelectedCategory] = useState<string | null>(null);
   
-  // Handle touch start for mobile swipe
-  const handleTouchStart = (e: React.TouchEvent) => {
-    setTouchStart(e.targetTouches[0].clientX);
-  };
-
-  // Handle touch move for mobile swipe
-  const handleTouchMove = (e: React.TouchEvent) => {
-    setTouchEnd(e.targetTouches[0].clientX);
-  };
-
-  // Handle touch end to determine swipe direction
-  const handleTouchEnd = useCallback(() => {
-    if (touchStart - touchEnd > 50) {
-      // Swipe left
-      setCurrentSlide(prev => 
-        prev === filteredCourses.length - 1 ? 0 : prev + 1
-      );
-    }
-
-    if (touchStart - touchEnd < -50) {
-      // Swipe right
-      setCurrentSlide(prev => 
-        prev === 0 ? filteredCourses.length - 1 : prev - 1
-      );
-    }
-  }, [touchStart, touchEnd]);
-
-  // Reset slide when category or search changes
-  useEffect(() => {
-    setCurrentSlide(0);
-  }, [selectedCategory, searchQuery]);
-
   const courses: Course[] = [
     {
       id: 1,
@@ -97,209 +63,205 @@ export const CoursesSection = () => {
       description: 'Comprehensive coaching for NEET aspirants with expert faculty and study materials.',
       image: '/courses/neet.jpg',
       category: 'Medical',
-      duration: '12 Months',
-      students: 150,
+      price: '₹15,000',
       rating: 4.8,
+      reviews: 1245,
     },
     {
       id: 2,
       title: 'JEE Main & Advanced',
-      description: 'Targeted preparation for JEE Main and Advanced with specialized test series.',
+      description: 'Targeted preparation for JEE Main and Advanced with comprehensive study materials.',
       image: '/courses/jee.jpg',
       category: 'Engineering',
-      duration: '12 Months',
-      students: 200,
+      price: '₹18,000',
       rating: 4.7,
+      reviews: 1876
     },
     {
       id: 3,
-      title: 'CBSE 11th & 12th (PCMB)',
-      description: 'Complete coaching for CBSE board exams with regular tests and doubt sessions.',
+      title: 'CBSE Class 12th',
+      description: 'Complete syllabus coverage for CBSE Class 12th with regular tests and doubt sessions.',
       image: '/courses/cbse.jpg',
       category: 'School',
-      duration: '10 Months',
-      students: 180,
+      price: '₹12,000',
       rating: 4.9,
+      reviews: 2341
     },
     {
       id: 4,
-      title: 'Foundation (8th-10th)',
-      description: 'Strong foundation building for school students with concept clarity.',
-      image: '/courses/foundation.jpg',
-      category: 'School',
-      duration: '12 Months',
-      students: 250,
-      rating: 4.9,
+      title: 'UPSC CSE',
+      description: 'Comprehensive guidance for UPSC Civil Services Examination with experienced mentors.',
+      image: '/courses/upsc.jpg',
+      category: 'Civil Services',
+      price: '₹25,000',
+      rating: 4.8,
+      reviews: 1567
     },
     {
       id: 5,
-      title: 'AIIMS Preparation',
-      description: 'Specialized coaching for AIIMS entrance examination with expert guidance.',
-      image: '/courses/aiims.jpg',
-      category: 'Medical',
-      duration: '12 Months',
-      students: 100,
-      rating: 4.8,
+      title: 'Banking Exams',
+      description: 'Preparation for various banking examinations with practice tests and mock interviews.',
+      image: '/courses/banking.jpg',
+      category: 'Banking',
+      price: '₹10,000',
+      rating: 4.6,
+      reviews: 1987
     },
     {
       id: 6,
-      title: 'Olympiad Preparation',
-      description: 'Training for various Olympiads (NTSE, KVPY, etc.) with expert faculty.',
-      image: '/courses/olympiad.jpg',
-      category: 'Competitive',
-      duration: '10 Months',
-      students: 120,
+      title: 'SSC CGL',
+      description: 'Complete preparation for SSC CGL with previous year papers and mock tests.',
+      image: '/courses/ssc.jpg',
+      category: 'Government Jobs',
+      price: '₹8,500',
       rating: 4.7,
-    },
+      reviews: 1765
+    }
   ];
 
-  const categories = useMemo(() => {
-    const allCategories = courses.map(course => course.category);
-    return ['All', ...new Set(allCategories)];
-  }, [courses]);
+  const categories = ['All', 'Medical', 'Engineering', 'School', 'Civil Services', 'Banking', 'Government Jobs'];
 
-  const filteredCourses = useMemo(() => {
-    return courses.filter(course => {
-      const matchesCategory = selectedCategory === 'All' || course.category === selectedCategory;
-      const matchesSearch = course.title.toLowerCase().includes(searchQuery.toLowerCase()) || 
-                          course.description.toLowerCase().includes(searchQuery.toLowerCase());
-      return matchesCategory && matchesSearch;
-    });
-  }, [selectedCategory, searchQuery, courses]);
+  const filteredCourses = !selectedCategory 
+    ? courses 
+    : courses.filter(course => course.category === selectedCategory);
+
+  // Category cards data
+  const categoryCards = [
+    {
+      id: 'neet',
+      title: 'NEET',
+      description: 'Medical Entrance',
+      icon: '🧑‍⚕️',
+      courses: courses.filter(course => course.category === 'Medical')
+    },
+    {
+      id: 'jee',
+      title: 'JEE',
+      description: 'Engineering Entrance',
+      icon: '🏗️',
+      courses: courses.filter(course => course.category === 'Engineering')
+    },
+    {
+      id: 'school',
+      title: 'School',
+      description: 'CBSE & State Boards',
+      icon: '📚',
+      courses: courses.filter(course => course.category === 'School')
+    },
+    {
+      id: 'government',
+      title: 'Government Jobs',
+      description: 'SSC, Banking, UPSC',
+      icon: '🏛️',
+      courses: courses.filter(course => ['Civil Services', 'Banking', 'Government Jobs'].includes(course.category))
+    }
+  ];
 
   return (
-    <section className="py-16 px-4">
-      <div className="max-w-7xl mx-auto">
+    <section className="py-16 bg-white">
+      <div className="container mx-auto px-4">
         <div className="text-center mb-12">
-          <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Courses</h2>
-          <p className="text-xl text-gray-600 max-w-2xl mx-auto">
-            Comprehensive coaching programs designed for academic excellence and competitive exam success
+          <h2 className="text-4xl font-bold text-gray-900 mb-4">Popular Categories</h2>
+          <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+            Choose your desired category to explore our courses
           </p>
         </div>
 
-        <div className="flex flex-col md:flex-row justify-between items-center mb-8 gap-4">
-          <div className="flex flex-wrap gap-2 justify-center">
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={`px-4 py-2 rounded-full text-sm font-medium transition-colors ${
-                  selectedCategory === category
-                    ? 'bg-orange-500 text-white'
-                    : 'bg-gray-100 text-gray-700 hover:bg-gray-200'
-                }`}
-              >
-                {category}
-              </button>
-            ))}
-          </div>
-
-          <div className="relative w-full md:w-64">
-            <input
-              type="text"
-              placeholder="Search courses..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="w-full px-4 py-2 pl-10 border border-gray-300 rounded-lg focus:ring-2 focus:ring-orange-500 focus:border-orange-500"
-            />
-            <svg
-              className="absolute left-3 top-2.5 h-5 w-5 text-gray-400"
-              fill="none"
-              stroke="currentColor"
-              viewBox="0 0 24 24"
-              xmlns="http://www.w3.org/2000/svg"
+        {/* Category Cards */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mb-16">
+          {categoryCards.map((category) => (
+            <div 
+              key={category.id}
+              onClick={() => setSelectedCategory(category.title === 'Government Jobs' ? 'Civil Services' : category.title === 'NEET' ? 'Medical' : category.title === 'JEE' ? 'Engineering' : category.title)}
+              className={`p-6 rounded-xl cursor-pointer transition-all duration-300 border-2 ${
+                (selectedCategory === category.title || 
+                 (category.title === 'NEET' && selectedCategory === 'Medical') ||
+                 (category.title === 'JEE' && selectedCategory === 'Engineering') ||
+                 (category.title === 'Government Jobs' && ['Civil Services', 'Banking', 'Government Jobs'].includes(selectedCategory || '')))
+                  ? 'border-orange-500 bg-orange-50' 
+                  : 'border-gray-200 hover:border-orange-300 hover:bg-orange-50'
+              }`}
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={2}
-                d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
-              />
-            </svg>
-          </div>
+              <div className="text-4xl mb-4">{category.icon}</div>
+              <h3 className="text-xl font-bold text-gray-900 mb-1">{category.title}</h3>
+              <p className="text-gray-600 text-sm mb-3">{category.description}</p>
+              <div className="flex items-center text-orange-500 font-medium text-sm">
+                {category.courses.length} Courses
+                <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </div>
+            </div>
+          ))}
         </div>
 
-        {filteredCourses.length === 0 ? (
-          <div className="text-center py-12">
-            <svg
-              className="mx-auto h-12 w-12 text-gray-400"
-              fill="none"
-              viewBox="0 0 24 24"
-              stroke="currentColor"
+        {/* Courses Section */}
+        <div className="mb-12">
+          <div className="flex flex-wrap justify-between items-center mb-8">
+            <h3 className="text-2xl font-bold text-gray-900">
+              {selectedCategory || 'All'} Courses
+              <span className="text-orange-500 ml-2">({filteredCourses.length})</span>
+            </h3>
+            <button 
+              onClick={() => setSelectedCategory(null)}
+              className="text-orange-500 hover:text-orange-600 font-medium text-sm flex items-center"
             >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                strokeWidth={1}
-                d="M9.172 16.172a4 4 0 015.656 0M9 10h.01M15 10h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
-            <h3 className="text-xl font-medium text-gray-700 mt-4">No courses found</h3>
-            <p className="text-gray-500 mt-2">Try adjusting your search or filter criteria</p>
+              View All Categories
+              <svg className="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+              </svg>
+            </button>
           </div>
-        ) : (
-          <>
-            {/* Desktop Grid - Hidden on mobile */}
-            <div className="hidden md:grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+          {filteredCourses.length > 0 ? (
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {filteredCourses.map((course) => (
-                <CourseCard key={`desktop-${course.id}`} course={course} />
+                <div key={course.id} className="group bg-white rounded-xl overflow-hidden shadow-sm hover:shadow-md transition-all duration-300 border border-gray-100 hover:border-orange-100">
+                  <div className="h-40 bg-gray-100 relative overflow-hidden">
+                    <Image 
+                      src={course.image} 
+                      alt={course.title}
+                      fill
+                      className="object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                    <div className="absolute top-3 right-3 bg-orange-500 text-white text-xs font-bold px-3 py-1 rounded-full">
+                      {course.category}
+                    </div>
+                  </div>
+                  <div className="p-5">
+                    <h3 className="font-bold text-lg text-gray-900 mb-2 group-hover:text-orange-500 transition-colors">
+                      {course.title}
+                    </h3>
+                    <p className="text-gray-600 text-sm mb-4 line-clamp-2">{course.description}</p>
+                    <div className="flex justify-between items-center">
+                      <div className="flex items-center">
+                        <div className="flex items-center text-yellow-400">
+                          <Star className="w-4 h-4 fill-current" />
+                          <span className="text-sm font-medium text-gray-900 ml-1">{course.rating}</span>
+                        </div>
+                        <span className="text-xs text-gray-400 ml-2">({course.reviews})</span>
+                      </div>
+                      <span className="text-sm font-bold text-orange-500">{course.price}</span>
+                    </div>
+                    <button className="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white font-medium py-2.5 px-4 rounded-lg transition-colors">
+                      Enroll Now
+                    </button>
+                  </div>
+                </div>
               ))}
             </div>
-
-            {/* Mobile Carousel */}
-            <div className="md:hidden relative overflow-hidden">
-              <div 
-                className="flex transition-transform duration-300 ease-out" 
-                style={{ transform: `translateX(-${currentSlide * 100}%)` }}
-                onTouchStart={handleTouchStart}
-                onTouchMove={handleTouchMove}
-                onTouchEnd={handleTouchEnd}
-              >
-                {filteredCourses.map((course) => (
-                  <div key={`mobile-${course.id}`} className="w-full flex-shrink-0 px-2">
-                    <CourseCard course={course} />
-                  </div>
-                ))}
-              </div>
-              
-              {/* Mobile Navigation Dots */}
-              {filteredCourses.length > 1 && (
-                <div className="flex justify-center mt-8 space-x-2">
-                  {filteredCourses.map((_, index) => (
-                    <button
-                      key={index}
-                      onClick={() => setCurrentSlide(index)}
-                      className={`w-3 h-3 rounded-full transition-colors ${
-                        index === currentSlide ? 'bg-orange-500' : 'bg-gray-300'
-                      }`}
-                      aria-label={`Go to course ${index + 1}`}
-                    />
-                  ))}
-                </div>
-              )}
-              
-              {/* Navigation Arrows - Only show if more than one course */}
-              {filteredCourses.length > 1 && (
-                <>
-                  <button 
-                    onClick={() => setCurrentSlide(prev => prev === 0 ? filteredCourses.length - 1 : prev - 1)}
-                    className="absolute -left-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2.5 rounded-full shadow-lg z-10 border border-gray-200 hover:border-orange-300 transition-colors"
-                    aria-label="Previous course"
-                  >
-                    <ChevronLeft className="w-6 h-6 text-orange-500" />
-                  </button>
-                  <button 
-                    onClick={() => setCurrentSlide(prev => prev === filteredCourses.length - 1 ? 0 : prev + 1)}
-                    className="absolute -right-4 top-1/2 -translate-y-1/2 bg-white/90 hover:bg-white p-2.5 rounded-full shadow-lg z-10 border border-gray-200 hover:border-orange-300 transition-colors"
-                    aria-label="Next course"
-                  >
-                    <ChevronRight className="w-6 h-6 text-orange-500" />
-                  </button>
-                </>
-              )}
+          ) : (
+            <div className="text-center py-12 bg-gray-50 rounded-xl">
+              <p className="text-gray-500">No courses found in this category.</p>
             </div>
-          </>
-        )}
+          )}
+        </div>
+
+        <div className="text-center">
+          <button className="px-8 py-3.5 bg-orange-500 hover:bg-orange-600 text-white font-medium rounded-lg transition-colors shadow-md hover:shadow-lg">
+            View All Courses
+          </button>
+        </div>
       </div>
     </section>
   );

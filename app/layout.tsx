@@ -1,7 +1,7 @@
 import type { Metadata } from 'next'
 import "./globals.css"
-import { ModernUIProvider } from "@/components/ui/modern-ui"
 import { ReactNode } from 'react'
+import { Providers } from "@/components/providers"
 
 export const metadata: Readonly<Metadata> = {
   title: "The Classes",
@@ -13,6 +13,7 @@ export default function RootLayout({
 }: {
   children: ReactNode
 }) {
+
   return (
     <html lang="en">
       <head>
@@ -21,10 +22,12 @@ export default function RootLayout({
           content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no"
         />
       </head>
-      <body>
-        <ModernUIProvider>
-          {children}
-        </ModernUIProvider>
+      <body className="min-h-screen flex flex-col bg-gray-50">
+        <Providers>
+          <main className="flex-grow">
+            {children}
+          </main>
+        </Providers>
       </body>
     </html>
   )

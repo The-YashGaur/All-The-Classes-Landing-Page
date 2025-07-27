@@ -4,30 +4,6 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
-/* Animations */
-@keyframes spin-slow {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-spin-slow {
-  animation: spin-slow 20s linear infinite;
-}
-
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -64,6 +40,7 @@ body {
     --sidebar-border: 220 13% 91%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
   .dark {
     --background: 0 0% 3.9%;
     --foreground: 0 0% 98%;
@@ -98,13 +75,51 @@ body {
     --sidebar-border: 240 3.7% 15.9%;
     --sidebar-ring: 217.2 91.2% 59.8%;
   }
+
+  body {
+    background-color: hsl(var(--background));
+    color: hsl(var(--foreground));
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 1.05rem;
+    line-height: 1.7;
+    font-weight: 400;
+    border-color: hsl(var(--border));
+  }
+
+  /* Text elements */
+  h1, h2, h3, h4, h5, h6, p, span, a, button, input, textarea, select, label, li, td, th {
+    font-family: inherit;
+    font-size: 1.025rem;
+    line-height: 1.5;
+  }
 }
 
-@layer base {
-  * {
-    @apply border-border;
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
   }
-  body {
-    @apply bg-background text-foreground;
+  
+  .text-xs {
+    font-size: 0.75rem;
+    line-height: 1.25;
+  }
+
+  .text-sm {
+    font-size: 0.875rem;
+    line-height: 1.25;
+  }
+  
+  .animate-spin-slow {
+    animation: spin-slow 20s linear infinite;
+  }
+}
+
+/* Animations */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
   }
 }
