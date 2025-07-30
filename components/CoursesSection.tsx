@@ -87,39 +87,11 @@ export const CoursesSection = () => {
       rating: 4.9,
       reviews: 2341
     },
-    {
-      id: 4,
-      title: 'UPSC CSE',
-      description: 'Comprehensive guidance for UPSC Civil Services Examination with experienced mentors.',
-      image: '/courses/upsc.jpg',
-      category: 'Civil Services',
-      price: '₹25,000',
-      rating: 4.8,
-      reviews: 1567
-    },
-    {
-      id: 5,
-      title: 'Banking Exams',
-      description: 'Preparation for various banking examinations with practice tests and mock interviews.',
-      image: '/courses/banking.jpg',
-      category: 'Banking',
-      price: '₹10,000',
-      rating: 4.6,
-      reviews: 1987
-    },
-    {
-      id: 6,
-      title: 'SSC CGL',
-      description: 'Complete preparation for SSC CGL with previous year papers and mock tests.',
-      image: '/courses/ssc.jpg',
-      category: 'Government Jobs',
-      price: '₹8,500',
-      rating: 4.7,
-      reviews: 1765
-    }
+
+
   ];
 
-  const categories = ['All', 'Medical', 'Engineering', 'School', 'Civil Services', 'Banking', 'Government Jobs'];
+  const categories = ['All', 'Medical', 'Engineering', 'School'];
 
   const filteredCourses = !selectedCategory 
     ? courses 
@@ -148,13 +120,7 @@ export const CoursesSection = () => {
       icon: '📚',
       courses: courses.filter(course => course.category === 'School')
     },
-    {
-      id: 'government',
-      title: 'Government Jobs',
-      description: 'SSC, Banking, UPSC',
-      icon: '🏛️',
-      courses: courses.filter(course => ['Civil Services', 'Banking', 'Government Jobs'].includes(course.category))
-    }
+
   ];
 
   return (

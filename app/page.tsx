@@ -6,31 +6,39 @@ import { Card, CardContent } from "@/components/ui/card"
 import { Input } from "@/components/ui/input"
 import { Textarea } from "@/components/ui/textarea"
 import { ModernButton, ModernSection, ModernSkeleton } from "@/components/ui/modern-ui"
-import {
-  BookOpen,
-  Users,
-  UserPlus,
-  Award,
-  Shield,
-  LayoutDashboard,
-  Book,
+import { 
   ArrowRight,
-  Lightbulb,
-  Star,
+  Award,
+  Book,
+  BookOpen,
+  Calendar,
+  Check,
   CheckCircle2 as UserCheck,
-  Target,
-  Phone,
+  ChevronDown,
+  Clock,
+  FileText,
+  FileText as FileTextIcon,
+  GraduationCap,
+  GraduationCap as GraduationCapIcon,
+  Heart as HeartIcon,
+  Home,
+  LayoutDashboard as LayoutDashboardIcon,
+  Lightbulb,
   Mail,
   MapPin,
   Menu as MenuIcon,
-  X as XIcon,
-  FileText as FileTextIcon,
-  Smartphone as SmartphoneIcon,
-  MessageSquare as MessageSquareIcon,
-  Heart as HeartIcon,
-  GraduationCap as GraduationCapIcon,
   MessageCircleMore,
-} from "lucide-react"
+  MessageSquare as MessageSquareIcon,
+  Phone,
+  Quote,
+  Shield as ShieldIcon,
+  Smartphone as SmartphoneIcon,
+  Star,
+  Target,
+  User,
+  Users,
+  X as XIcon
+} from 'lucide-react';
 import Image from "next/image"
 import Link from "next/link"
 import { useState, useEffect } from "react"
@@ -57,7 +65,7 @@ const TestimonialCard = ({ testimonial }: { testimonial: any }) => (
         {/* Decorative elements */}
         <div className="absolute inset-0 bg-gradient-to-br from-orange-50/50 to-purple-50/50 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
         <div className="absolute -top-4 -right-4 w-24 h-24 bg-orange-100 rounded-full opacity-20"></div>
-        
+
         {/* Profile image */}
         <div className="relative mb-6 group self-center">
           <div className="relative z-10 w-24 h-24 rounded-full overflow-hidden border-4 border-white shadow-lg">
@@ -81,10 +89,10 @@ const TestimonialCard = ({ testimonial }: { testimonial: any }) => (
             {testimonial.course}
           </span>
         </div>
-        
+
         {/* Testimonial text */}
         <div className="mb-6 text-gray-600 flex-1">
-          <div 
+          <div
             className="prose-sm max-w-none text-center"
             dangerouslySetInnerHTML={{
               __html: testimonial.feedback.replace(
@@ -94,21 +102,20 @@ const TestimonialCard = ({ testimonial }: { testimonial: any }) => (
             }}
           />
         </div>
-        
+
         {/* Rating */}
         <div className="flex justify-center space-x-1">
           {[...Array(5)].map((_, i) => (
             <Star
               key={i}
-              className={`w-5 h-5 transition-colors ${
-                i < 4 
-                  ? 'text-yellow-400 fill-current' 
+              className={`w-5 h-5 transition-colors ${i < 4
+                  ? 'text-yellow-400 fill-current'
                   : 'text-gray-300 fill-current'
-              }`}
+                }`}
             />
           ))}
         </div>
-        
+
         {/* Decorative bottom element */}
         <div className="absolute -bottom-8 -left-8 w-32 h-32 bg-purple-100 rounded-full opacity-20"></div>
       </div>
@@ -150,7 +157,7 @@ export default function TheClassesLanding() {
       const rect = item.getBoundingClientRect();
       const itemCenter = rect.left + rect.width / 2;
       const distance = Math.abs(itemCenter - containerCenter);
-      
+
       if (distance < minDistance) {
         minDistance = distance;
         closestIndex = index;
@@ -277,50 +284,6 @@ export default function TheClassesLanding() {
     },
   ]
 
-  const methodology = [
-    {
-      step: "01",
-      title: "TSPS: Teacher-Student Practice Sheets",
-      description: "Interactive practice sessions conducted in class with immediate feedback and doubt resolution.",
-    },
-    {
-      step: "02",
-      title: "HSPS: Home Self Practice Sheets",
-      description: "Structured homework assignments designed to reinforce classroom learning and build confidence.",
-    },
-    {
-      step: "03",
-      title: "ESPS: Exam-Specific Practice Sheets",
-      description: "Targeted practice materials focusing on exam patterns and question types for better preparation.",
-    },
-    {
-      step: "04",
-      title: "Test Series",
-      description: "Regular mock tests and assessments to evaluate progress and improve exam temperament.",
-    },
-  ]
-
-  const faculty = [
-    {
-      name: "Vikram Sagar Sir",
-      subject: "Chemistry",
-      experience: "10 Years Experience",
-      image: "/teacher_1-BDD-8-iz.png",
-    },
-    {
-      name: "Rajeev Lal Sir",
-      subject: "Physics",
-      experience: "30 Years Experience",
-      image: "/teacher_2-B4UyHFTs.png",
-    },
-    {
-      name: "Gyanendra Singh Sir",
-      subject: "Biology",
-      experience: "20 Years Experience",
-      image: "/teacher_3-DxMlnws7.png",
-    },
-  ]
-
   return (
     <div className="min-h-screen">
       {/* Header */}
@@ -358,7 +321,7 @@ export default function TheClassesLanding() {
               <Link href="#contact" className="text-gray-600 hover:text-orange-500 transition-colors font-medium">
                 Contact
               </Link>
-              <ModernButton 
+              <ModernButton
                 className="bg-orange-500 hover:bg-orange-600 text-white px-6 py-2.5 rounded-full shadow-md hover:shadow-lg transition-all duration-300"
                 size="lg"
               >
@@ -367,7 +330,7 @@ export default function TheClassesLanding() {
             </nav>
 
             {/* Mobile Menu Button */}
-            <button 
+            <button
               className="md:hidden p-2.5 rounded-lg bg-orange-500 text-white hover:bg-orange-600 transition-colors"
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               aria-label="Toggle menu"
@@ -383,50 +346,50 @@ export default function TheClassesLanding() {
       </header>
 
       {/* Mobile Menu */}
-      <div 
+      <div
         className={`md:hidden fixed inset-0 z-40 transition-all duration-300 ease-in-out ${isMenuOpen ? 'opacity-100 visible' : 'opacity-0 invisible'}`}
         style={{ pointerEvents: isMenuOpen ? 'auto' : 'none' }}
       >
         {/* Backdrop */}
-        <div 
+        <div
           className="absolute inset-0 bg-black/30 backdrop-blur-sm"
           onClick={() => setIsMenuOpen(false)}
         />
-        
+
         {/* Menu Panel */}
-        <div 
+        <div
           className={`absolute top-20 right-4 left-4 bg-white/95 backdrop-blur-lg rounded-xl shadow-2xl overflow-hidden transform transition-all duration-300 ease-in-out ${isMenuOpen ? 'translate-y-0' : '-translate-y-4'}`}
         >
           <nav className="flex flex-col p-6 space-y-2">
-            <Link 
-              href="#courses" 
+            <Link
+              href="#courses"
               className="text-gray-800 hover:text-orange-600 text-lg font-medium py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Courses
             </Link>
-            <Link 
-              href="#testimonials" 
+            <Link
+              href="#testimonials"
               className="text-gray-800 hover:text-orange-600 text-lg font-medium py-3 px-4 rounded-lg hover:bg-gray-50 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Testimonials
             </Link>
-            <Link 
-              href="#faculty" 
+            <Link
+              href="#faculty"
               className="text-gray-800 hover:text-orange-600 text-lg font-medium py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
               Faculty
             </Link>
-            <Link 
-              href="#contact" 
+            <Link
+              href="#contact"
               className="text-gray-800 hover:text-orange-600 text-lg font-medium py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors mb-4"
               onClick={() => setIsMenuOpen(false)}
             >
               Contact
             </Link>
-            <ModernButton 
+            <ModernButton
               className="w-full bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-lg py-4"
               onClick={() => setIsMenuOpen(false)}
             >
@@ -463,7 +426,7 @@ export default function TheClassesLanding() {
                     <p className="text-xs sm:text-sm text-gray-600">Personalized attention</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-2 p-2 sm:p-3 bg-white/50 sm:bg-white/50 rounded-lg backdrop-blur-sm">
                   <div className="flex-shrink-0 mt-0.5 sm:mt-1">
                     <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-orange-100 flex items-center justify-center">
@@ -475,7 +438,7 @@ export default function TheClassesLanding() {
                     <p className="text-xs sm:text-sm text-gray-600">Experienced educators</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-2 p-2 sm:p-3 bg-white/50 sm:bg-white/50 rounded-lg backdrop-blur-sm">
                   <div className="flex-shrink-0 mt-0.5 sm:mt-1">
                     <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-orange-100 flex items-center justify-center">
@@ -487,7 +450,7 @@ export default function TheClassesLanding() {
                     <p className="text-xs sm:text-sm text-gray-600">Comprehensive content</p>
                   </div>
                 </div>
-                
+
                 <div className="flex items-start space-x-2 p-2 sm:p-3 bg-white/50 sm:bg-white/50 rounded-lg backdrop-blur-sm">
                   <div className="flex-shrink-0 mt-0.5 sm:mt-1">
                     <div className="w-7 h-7 sm:w-8 sm:h-8 rounded-full bg-orange-100 flex items-center justify-center">
@@ -501,27 +464,6 @@ export default function TheClassesLanding() {
                 </div>
               </div>
 
-              <p className="text-lg text-gray-700 leading-relaxed mb-8 max-w-lg">
-                Join small batches, expert teachers, and a stress-free learning environment designed for NEET, JEE, and CBSE success.
-              </p>
-
-              <div className="flex flex-col sm:flex-row gap-4 mb-12">
-                <button 
-                  className="group relative inline-flex items-center justify-center overflow-hidden bg-gradient-to-r from-orange-500 to-orange-600 hover:from-orange-600 hover:to-orange-700 text-white text-lg font-medium px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto"
-                >
-                  <span className="relative z-10 flex items-center">
-                    Register Now
-                    <ArrowRight className="ml-2 w-5 h-5 flex-shrink-0" />
-                  </span>
-                </button>
-                <button 
-                  className="group relative inline-flex items-center justify-center overflow-hidden border-2 border-orange-500 text-orange-600 hover:bg-orange-50 text-lg font-medium px-8 py-4 rounded-full shadow-lg hover:shadow-xl transform hover:-translate-y-0.5 transition-all duration-300 w-full sm:w-auto"
-                >
-                  <span className="relative z-10">
-                    View Courses
-                  </span>
-                </button>
-              </div>
 
               {/* Stats */}
               <div className="flex items-center space-x-8">
@@ -555,7 +497,7 @@ export default function TheClassesLanding() {
                       aria-required="true"
                     />
                   </div>
-                  
+
                   <div className="space-y-1">
                     <label htmlFor="phone" className="block text-sm font-medium text-gray-700">
                       Contact Number <span className="text-red-500">*</span>
@@ -572,7 +514,7 @@ export default function TheClassesLanding() {
                       title="Please enter a valid 10-digit phone number"
                     />
                   </div>
-                  
+
                   <div className="space-y-1">
                     <label htmlFor="address" className="block text-sm font-medium text-gray-700">
                       Address <span className="text-red-500">*</span>
@@ -586,7 +528,7 @@ export default function TheClassesLanding() {
                       aria-required="true"
                     />
                   </div>
-                  
+
                   <div className="space-y-1">
                     <label htmlFor="course" className="block text-sm font-medium text-gray-700">
                       Select Course <span className="text-red-500">*</span>
@@ -604,7 +546,7 @@ export default function TheClassesLanding() {
                       <option value="cbse">CBSE Board</option>
                     </select>
                   </div>
-                  
+
                   <div className="space-y-1">
                     <label htmlFor="message" className="block text-sm font-medium text-gray-700">
                       Your Message (Optional)
@@ -617,7 +559,7 @@ export default function TheClassesLanding() {
                       aria-label="Optional message"
                     ></textarea>
                   </div>
-                  
+
                   <button
                     type="submit"
                     className="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white font-medium py-2.5 px-6 rounded-lg transition-colors duration-300 focus:outline-none focus:ring-2 focus:ring-orange-500 focus:ring-offset-2"
@@ -625,7 +567,7 @@ export default function TheClassesLanding() {
                     Submit Query
                   </button>
                 </form>
-                
+
                 <p className="text-xs text-gray-500 mt-4 text-center">
                   By submitting this form, you agree to our <a href="#" className="text-orange-600 hover:underline">Terms & Conditions</a>
                 </p>
@@ -659,7 +601,7 @@ export default function TheClassesLanding() {
 
             {/* Mobile Carousel */}
             <div className="md:hidden relative w-full overflow-hidden">
-              <div 
+              <div
                 ref={carouselRef}
                 className="flex overflow-x-auto snap-x snap-mandatory scrollbar-hide"
                 style={{
@@ -674,8 +616,8 @@ export default function TheClassesLanding() {
                 onScroll={handleScroll}
               >
                 {testimonials.map((testimonial, index) => (
-                  <div 
-                    key={`mobile-${index}`} 
+                  <div
+                    key={`mobile-${index}`}
                     className="testimonial-item flex-shrink-0 w-[min(320px,100vw-4rem)] snap-center"
                     data-index={index}
                   >
@@ -683,7 +625,7 @@ export default function TheClassesLanding() {
                   </div>
                 ))}
               </div>
-              
+
               {/* Mobile Navigation Dots */}
               <div className="flex justify-center mt-8 space-x-2">
                 {testimonials.map((_, index) => (
@@ -693,23 +635,22 @@ export default function TheClassesLanding() {
                       setCurrentSlide(index);
                       scrollToIndex(index);
                     }}
-                    className={`w-2.5 h-2.5 rounded-full transition-colors ${
-                      index === currentSlide ? 'bg-orange-500' : 'bg-gray-300'
-                    }`}
+                    className={`w-2.5 h-2.5 rounded-full transition-colors ${index === currentSlide ? 'bg-orange-500' : 'bg-gray-300'
+                      }`}
                     aria-label={`Go to slide ${index + 1}`}
                   />
                 ))}
               </div>
-              
+
               {/* Navigation Arrows */}
-              <button 
+              <button
                 onClick={prevSlide}
                 className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg z-10 transition-colors"
                 aria-label="Previous testimonial"
               >
                 <ArrowRight className="w-5 h-5 rotate-180 text-orange-500" />
               </button>
-              <button 
+              <button
                 onClick={nextSlide}
                 className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/80 hover:bg-white p-2 rounded-full shadow-lg z-10 transition-colors"
                 aria-label="Next testimonial"
@@ -728,112 +669,87 @@ export default function TheClassesLanding() {
         </div>
       </section>
 
-      {/* Why Choose Us - Interactive Tabs */}
-      <section className="py-16 px-4 bg-white relative overflow-hidden" data-animate>
-        <div className="container mx-auto max-w-6xl">
-          <div className="text-center mb-14">
-            <span className="inline-block text-orange-500 font-medium mb-3 text-sm tracking-[0.2em] uppercase">WHY CHOOSE US</span>
-            <div className="relative">
-              <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
-                Why Students Love 
-                <span className="relative inline-block">
-                  <span className="relative z-10 text-orange-500">ALL THE CLASSES</span>
-                  <span className="absolute bottom-1 left-0 w-full h-3 bg-orange-50 -z-0"></span>
-                </span>
-              </h2>
-              <div className="w-24 h-1 bg-gradient-to-r from-orange-400 to-orange-500 mx-auto mt-6 rounded-full"></div>
-            </div>
+      {/* Why Choose Us - Interactive Cards */}
+      <section className="py-16 px-4 bg-gray-50 relative overflow-hidden" data-animate>
+        <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5"></div>
+        <div className="container mx-auto max-w-6xl relative z-10">
+          <div className="text-center mb-16">
+            <span className="inline-block text-orange-500 font-medium mb-3 text-sm tracking-[0.2em] uppercase">
+              WHY CHOOSE US
+            </span>
+            <h2 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6 leading-tight">
+              Why Students Love{' '}
+              <span className="relative inline-block">
+                <span className="relative z-10 text-orange-500">ALL THE CLASSES</span>
+                <span className="absolute bottom-1 left-0 w-full h-3 bg-orange-100 -z-0"></span>
+              </span>
+            </h2>
+            <div className="w-24 h-1 bg-gradient-to-r from-orange-400 to-orange-500 mx-auto rounded-full"></div>
           </div>
 
-          <div className="flex flex-col lg:flex-row gap-8 items-center">
-            {/* Image showcase */}
-            <div className="w-full lg:w-1/2 relative h-80 lg:h-[500px] rounded-2xl overflow-hidden shadow-xl">
-              <div className="absolute inset-0 bg-gradient-to-br from-orange-100 to-orange-50">
-                <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-10"></div>
-              </div>
-              
-              {/* Feature highlights */}
-              {whyChooseFeatures.map((feature, index) => (
+          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {whyChooseFeatures.map((feature, index) => (
+              <div 
+                key={index}
+                className="group bg-white rounded-2xl overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 border border-gray-100 hover:border-orange-100"
+              >
                 <div 
-                  key={index}
-                  className={`absolute transition-all duration-700 ease-in-out transform ${
-                    index === 0 ? 'opacity-100' : 'opacity-0'
-                  }`}
-                  id={`feature-${index}`}
-                >
-                  <div className="p-6 md:p-8">
-                    <div className="w-16 h-16 rounded-2xl bg-orange-100 flex items-center justify-center text-orange-500 text-2xl mb-6">
-                      {feature.icon}
-                    </div>
-                    <h3 className="text-2xl font-bold text-gray-900 mb-3">{feature.title}</h3>
-                    <p className="text-gray-600">{feature.description}</p>
-                  </div>
-                  <div className="absolute -bottom-6 -right-6 w-48 h-48 bg-orange-200 rounded-full opacity-20 -z-10"></div>
-                </div>
-              ))}
-            </div>
-
-            {/* Tab navigation */}
-            <div className="w-full lg:w-1/2 space-y-4">
-              {whyChooseFeatures.map((feature, index) => (
-                <div 
-                  key={index}
-                  className={`group relative p-6 rounded-xl border-2 transition-all duration-300 cursor-pointer hover:border-orange-200 hover:shadow-lg ${
-                    index === 0 ? 'border-orange-300 bg-orange-50' : 'border-transparent bg-gray-50'
-                  }`}
-                  onMouseEnter={() => {
-                    // Hide all features
-                    document.querySelectorAll('[id^="feature-"]').forEach(el => {
-                      el.classList.remove('opacity-100');
-                      el.classList.add('opacity-0');
-                    });
-                    // Show current feature
-                    const currentFeature = document.getElementById(`feature-${index}`);
-                    if (currentFeature) {
-                      currentFeature.classList.remove('opacity-0');
-                      currentFeature.classList.add('opacity-100');
+                  className="p-6 cursor-pointer"
+                  onClick={(e) => {
+                    const content = e.currentTarget.nextElementSibling as HTMLElement;
+                    const icon = e.currentTarget.querySelector('.feature-icon');
+                    if (content.style.maxHeight && content.style.maxHeight !== '0px') {
+                      content.style.maxHeight = '0';
+                      icon?.classList.remove('rotate-180');
+                    } else {
+                      content.style.maxHeight = content.scrollHeight + 'px';
+                      icon?.classList.add('rotate-180');
                     }
-                    // Update active tab
-                    document.querySelectorAll('.tab-item').forEach((el, i) => {
-                      if (i === index) {
-                        el.classList.remove('border-transparent', 'bg-gray-50');
-                        el.classList.add('border-orange-300', 'bg-orange-50');
-                      } else {
-                        el.classList.remove('border-orange-300', 'bg-orange-50');
-                        el.classList.add('border-transparent', 'bg-gray-50');
-                      }
-                    });
                   }}
                 >
-                  <div className="flex items-start">
-                    <div className="flex-shrink-0 w-10 h-10 rounded-full bg-white border-2 border-orange-400 flex items-center justify-center text-orange-600 font-bold text-sm mr-4">
-                      {index + 1}
-                    </div>
-                    <div>
-                      <h3 className="text-lg font-bold text-gray-900 mb-2 flex items-center">
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center">
+                      <div className="w-12 h-12 rounded-xl bg-orange-50 flex-shrink-0 flex items-center justify-center text-orange-500 text-xl mr-4">
+                        {feature.icon}
+                      </div>
+                      <h3 className="text-lg font-semibold text-gray-900">
                         {feature.title}
-                        <ArrowRight className="w-4 h-4 ml-2 text-orange-500 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
                       </h3>
-                      <p className="text-gray-600 text-sm">{feature.description}</p>
                     </div>
+                    <ChevronDown className="w-5 h-5 text-gray-400 transition-transform duration-300 feature-icon" />
                   </div>
-                  <div className="absolute inset-0 bg-gradient-to-r from-white/50 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 -z-10"></div>
                 </div>
-              ))}
-            </div>
+                
+                <div 
+                  className="px-6 pb-6 pt-0 transition-all duration-300 ease-in-out overflow-hidden"
+                  style={{ maxHeight: '0' }}
+                >
+                  <div className="border-t border-gray-100 my-4"></div>
+                  <p className="text-gray-600">
+                    {feature.description}
+                  </p>
+                </div>
+              </div>
+            ))}
           </div>
 
           {/* Stats */}
           <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6">
             {[
-              { number: '15+', label: 'Years Experience' },
-              { number: '1000+', label: 'Students Trained' },
-              { number: '95%', label: 'Success Rate' },
-              { number: '50+', label: 'Expert Faculty' },
+              { number: '15+', label: 'Years Experience', icon: <Calendar className="w-6 h-6 text-orange-500" /> },
+              { number: '1000+', label: 'Students Trained', icon: <Users className="w-6 h-6 text-orange-500" /> },
+              { number: '95%', label: 'Success Rate', icon: <Award className="w-6 h-6 text-orange-500" /> },
+              { number: '50+', label: 'Expert Faculty', icon: <GraduationCap className="w-6 h-6 text-orange-500" /> },
             ].map((stat, index) => (
-              <div key={index} className="text-center p-6 bg-white rounded-xl shadow-sm border border-gray-100 hover:shadow-md transition-shadow duration-300">
-                <div className="text-3xl font-bold text-orange-500 mb-2">{stat.number}</div>
-                <div className="text-gray-600 text-sm">{stat.label}</div>
+              <div 
+                key={index} 
+                className="bg-white p-6 rounded-xl shadow-sm hover:shadow-md transition-shadow duration-300 border border-gray-100 text-center"
+              >
+                <div className="w-14 h-14 mx-auto mb-4 rounded-full bg-orange-50 flex items-center justify-center">
+                  {stat.icon}
+                </div>
+                <div className="text-2xl md:text-3xl font-bold text-orange-500 mb-1">{stat.number}</div>
+                <div className="text-sm text-gray-600">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -864,54 +780,6 @@ export default function TheClassesLanding() {
         </div>
       </section>
 
-      {/* Director's Message */}
-      <section className="py-20 px-4 bg-gradient-to-br from-orange-50 to-cream-50" data-animate>
-        <div className="container mx-auto">
-          <div className="grid lg:grid-cols-2 gap-12 items-center">
-            <div className="relative">
-              <div className="relative aspect-square overflow-hidden rounded-3xl shadow-2xl">
-                <Image
-                  src="/vikram_sir-BUpp7ciH.png"
-                  alt="Vikram Sagar Sir"
-                  width={500}
-                  height={500}
-                  className="w-full h-full object-cover"
-                  priority
-                />
-              </div>
-              <div className="absolute -bottom-4 -right-4 w-24 h-24 bg-gradient-to-r from-orange-500 to-orange-600 rounded-2xl flex items-center justify-center">
-                <Award className="w-12 h-12 text-white" />
-              </div>
-            </div>
-
-            <div className="space-y-6">
-              <div>
-                <h2 className="text-4xl font-bold text-gray-800 mb-4">Director's Welcome Message</h2>
-                <h3 className="text-xl text-orange-600 font-medium mb-6">- Vikram Sagar Sir</h3>
-              </div>
-
-              <div className="space-y-4 text-gray-600 leading-relaxed">
-                <p>
-                  Welcome to THE Classes, where we believe in nurturing not just academic excellence but also character
-                  development. Our vision goes beyond traditional coaching - we create an environment where students can
-                  thrive without stress.
-                </p>
-                <p>
-                  With our focus on <strong className="text-orange-600">small batches</strong> and{" "}
-                  <strong className="text-orange-600">personalized attention</strong>, we ensure every student receives
-                  the care they deserve. Our hybrid learning approach combines the best of traditional teaching with
-                  modern methodologies.
-                </p>
-                <p>
-                  At THE Classes, we don't just prepare students for exams; we prepare them for life. Join our family
-                  and experience the difference that genuine care and expert guidance can make in your academic journey.
-                </p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </section>
-
       {/* Contact Section */}
       <section id="contact" className="py-20 px-4 bg-white">
         <div className="container mx-auto">
@@ -919,7 +787,7 @@ export default function TheClassesLanding() {
             <h2 className="text-4xl font-bold text-gray-800 mb-4">Get In Touch</h2>
             <p className="text-xl text-gray-600 max-w-3xl mx-auto">Have questions? We're here to help. Visit us or reach out through any of these channels.</p>
           </div>
-          
+
           <div className="grid lg:grid-cols-2 gap-12 items-center">
             <div className="space-y-6">
               <div className="flex items-center space-x-4 p-6 bg-gray-50 rounded-xl">
@@ -931,7 +799,7 @@ export default function TheClassesLanding() {
                   <p className="text-gray-600">+91 9625-852085</p>
                 </div>
               </div>
-              
+
               <div className="flex items-center space-x-4 p-6 bg-gray-50 rounded-xl">
                 <div className="w-14 h-14 bg-orange-100 rounded-xl flex-shrink-0 flex items-center justify-center">
                   <Mail className="w-6 h-6 text-orange-600" />
@@ -941,7 +809,7 @@ export default function TheClassesLanding() {
                   <p className="text-gray-600">support@alltheclasses.com</p>
                 </div>
               </div>
-              
+
               <div className="flex items-start space-x-4 p-6 bg-gray-50 rounded-xl">
                 <div className="w-14 h-14 bg-orange-100 rounded-xl flex-shrink-0 flex items-center justify-center mt-1">
                   <MapPin className="w-6 h-6 text-orange-600" />
@@ -952,7 +820,7 @@ export default function TheClassesLanding() {
                 </div>
               </div>
             </div>
-            
+
             {/* Map Container - Expanded to full height */}
             <div className="h-full min-h-[500px] rounded-2xl overflow-hidden shadow-xl border border-gray-200 relative z-10">
               <div className="relative h-full w-full">
@@ -971,10 +839,10 @@ export default function TheClassesLanding() {
             <div className="space-y-4">
               <div className="flex items-center space-x-3 bg-gradient-to-r from-orange-500 to-orange-600 p-3 rounded-lg shadow-lg">
                 <div className="bg-white p-2 rounded-lg">
-                  <Image 
-                    src="/logo.png" 
-                    alt="THE Classes Logo" 
-                    width={44} 
+                  <Image
+                    src="/logo.png"
+                    alt="THE Classes Logo"
+                    width={44}
                     height={44}
                     className="h-11 w-11 object-contain"
                   />
@@ -1017,8 +885,8 @@ export default function TheClassesLanding() {
                   { name: 'Contact', url: '#contact' },
                 ].map((link, index) => (
                   <li key={index}>
-                    <a 
-                      href={link.url} 
+                    <a
+                      href={link.url}
                       className="text-gray-400 hover:text-orange-500 transition-colors text-sm"
                     >
                       {link.name}
@@ -1052,13 +920,13 @@ export default function TheClassesLanding() {
               <h3 className="text-lg font-semibold text-white mb-4">Newsletter</h3>
               <p className="text-gray-400 text-sm mb-4">Subscribe to our newsletter for updates and course information.</p>
               <form className="space-y-3">
-                <input 
-                  type="email" 
-                  placeholder="Your email address" 
+                <input
+                  type="email"
+                  placeholder="Your email address"
                   className="w-full px-4 py-2 text-sm bg-gray-800 border border-gray-700 rounded-md focus:outline-none focus:ring-2 focus:ring-orange-500 text-white"
                   required
                 />
-                <button 
+                <button
                   type="submit"
                   className="w-full bg-orange-500 hover:bg-orange-600 text-white font-medium py-2.5 px-6 rounded-md transition-colors text-sm"
                 >
@@ -1093,17 +961,17 @@ export default function TheClassesLanding() {
       </div>
 
       {/* Floating WhatsApp Button */}
-      <a 
-        href="https://wa.me/919625852085" 
-        target="_blank" 
+      <a
+        href="https://wa.me/919625852085"
+        target="_blank"
         rel="noopener noreferrer"
         className="fixed bottom-6 right-6 z-50 w-14 h-14 bg-[#25D366] hover:bg-[#128C7E] text-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300 hover:shadow-xl hover:scale-105"
         aria-label="Chat with us on WhatsApp"
       >
         <svg width="30" height="30" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <path d="M17.498 6.563C15.333 4.427 12.513 3.25 9.647 3.25c-5.1 0-9.25 4.15-9.25 9.25 0 1.63.44 3.25 1.28 4.67l-1.35 4.2 4.37-1.32c1.38.75 2.9 1.15 4.45 1.15 5.1 0 9.25-4.15 9.25-9.25 0-2.86-1.32-5.55-3.5-7.44z" fill="#fff"/>
-          <path d="M20.218 3.78c-2.35-2.35-5.47-3.64-8.79-3.64-6.63 0-12 5.37-12 12 0 2.12.56 4.19 1.62 6l-1.69 5.25 5.45-1.65c1.75 1.01 3.74 1.54 5.8 1.54 6.63 0 12-5.37 12-12 0-3.31-1.35-6.42-3.73-8.75zm-10.57 15.22h-.4c-1.25 0-2.48-.31-3.57-.9l-.26-.15-2.75.8.73-2.64-.17-.28c-.82-1.25-1.25-2.67-1.25-4.14 0-4.64 3.8-8.44 8.44-8.44 2.25 0 4.37.88 5.96 2.47 1.59 1.59 2.47 3.7 2.47 5.96 0 4.65-3.8 8.44-8.45 8.44z" fill="#fff"/>
-          <path d="M17.848 14.38c-.22-.11-1.3-.64-1.5-.72-.2-.08-.35-.12-.5.12-.15.24-.57.72-.7.86-.13.14-.26.16-.49.05-.23-.1-.97-.36-1.85-1.14-.68-.61-1.14-1.36-1.27-1.59-.13-.23-.01-.36.1-.47.1-.1.23-.26.35-.39.12-.13.16-.22.24-.37.08-.15.04-.28-.02-.39-.06-.11-.5-1.2-.69-1.64-.18-.44-.37-.38-.5-.39-.13-.01-.28-.01-.43-.01-.15 0-.38.06-.59.3-.2.25-.77.75-.77 1.83s.79 2.12.9 2.27c.11.15 1.56 2.38 3.77 3.34.53.23.94.37 1.26.47.53.17 1.01.15 1.39.09.43-.07 1.3-.53 1.48-1.05.18-.52.18-.96.13-1.05-.05-.09-.18-.14-.39-.23z" fill="#fff"/>
+          <path d="M17.498 6.563C15.333 4.427 12.513 3.25 9.647 3.25c-5.1 0-9.25 4.15-9.25 9.25 0 1.63.44 3.25 1.28 4.67l-1.35 4.2 4.37-1.32c1.38.75 2.9 1.15 4.45 1.15 5.1 0 9.25-4.15 9.25-9.25 0-2.86-1.32-5.55-3.5-7.44z" fill="#fff" />
+          <path d="M20.218 3.78c-2.35-2.35-5.47-3.64-8.79-3.64-6.63 0-12 5.37-12 12 0 2.12.56 4.19 1.62 6l-1.69 5.25 5.45-1.65c1.75 1.01 3.74 1.54 5.8 1.54 6.63 0 12-5.37 12-12 0-3.31-1.35-6.42-3.73-8.75zm-10.57 15.22h-.4c-1.25 0-2.48-.31-3.57-.9l-.26-.15-2.75.8.73-2.64-.17-.28c-.82-1.25-1.25-2.67-1.25-4.14 0-4.64 3.8-8.44 8.44-8.44 2.25 0 4.37.88 5.96 2.47 1.59 1.59 2.47 3.7 2.47 5.96 0 4.65-3.8 8.44-8.45 8.44z" fill="#fff" />
+          <path d="M17.848 14.38c-.22-.11-1.3-.64-1.5-.72-.2-.08-.35-.12-.5.12-.15.24-.57.72-.7.86-.13.14-.26.16-.49.05-.23-.1-.97-.36-1.85-1.14-.68-.61-1.14-1.36-1.27-1.59-.13-.23-.01-.36.1-.47.1-.1.23-.26.35-.39.12-.13.16-.22.24-.37.08-.15.04-.28-.02-.39-.06-.11-.5-1.2-.69-1.64-.18-.44-.37-.38-.5-.39-.13-.01-.28-.01-.43-.01-.15 0-.38.06-.59.3-.2.25-.77.75-.77 1.83s.79 2.12.9 2.27c.11.15 1.56 2.38 3.77 3.34.53.23.94.37 1.26.47.53.17 1.01.15 1.39.09.43-.07 1.3-.53 1.48-1.05.18-.52.18-.96.13-1.05-.05-.09-.18-.14-.39-.23z" fill="#fff" />
         </svg>
       </a>
     </div>
