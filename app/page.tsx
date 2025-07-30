@@ -403,11 +403,11 @@ export default function TheClassesLanding() {
       <section className="relative min-h-screen flex items-center pt-24 sm:pt-28 md:pt-32 pb-16 sm:pb-20 overflow-hidden bg-gradient-to-br from-orange-50 to-orange-100">
         <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5"></div>
         <div className="container mx-auto px-4 sm:px-6 relative z-10">
-          <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+          <div className="lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
             <div className="max-w-2xl">
               <span className="inline-block bg-orange-100 text-orange-600 text-xs sm:text-sm font-medium px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-3 sm:mb-4">
-                Best Coaching in the City
+                Best Coaching in India
               </span>
               <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4 sm:mb-6">
                 Achieve Your <span className="text-orange-600">Academic Dreams</span>
@@ -464,23 +464,15 @@ export default function TheClassesLanding() {
                 </div>
               </div>
 
-
-              {/* Stats */}
-              <div className="flex items-center space-x-8">
-                <div>
-                  <div className="text-3xl font-bold text-orange-600">15+</div>
-                  <div className="text-gray-600">Years Experience</div>
-                </div>
-                <div className="h-12 w-px bg-gray-300"></div>
-                <div>
-                  <div className="text-3xl font-bold text-orange-600">1000+</div>
-                  <div className="text-gray-600">Students Trained</div>
-                </div>
-              </div>
             </div>
 
-            {/* Right Content - Query Form */}
-            <div className="relative mt-8 lg:mt-0">
+            {/* Right Content - Query Form with mobile header */}
+            <div className="relative lg:mt-0 bg-white lg:bg-transparent rounded-xl lg:rounded-none shadow-lg lg:shadow-none overflow-hidden">
+              {/* Mobile Header */}
+              <div className="lg:hidden bg-gradient-to-r from-orange-500 to-orange-600 text-white p-4">
+                <h3 className="text-xl font-bold text-center">Book Your FREE Demo Class</h3>
+                <p className="text-sm text-center text-orange-100 mt-1">Limited seats available. Enroll now!</p>
+              </div>
               <div className="bg-white rounded-xl shadow-lg p-6 border border-gray-100">
                 <h3 className="text-xl font-bold text-gray-900 mb-6 text-center">Book Your FREE Demo Class Now!</h3>
                 <form className="space-y-4">
