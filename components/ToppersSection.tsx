@@ -130,11 +130,11 @@ export function ToppersSection() {
   };
 
   return (
-    <section className="py-16 px-4 bg-gradient-to-b from-orange-50 to-white relative overflow-hidden">
+    <section id="toppers" className="py-16 px-4 bg-gradient-to-b from-orange-50 to-white relative overflow-hidden">
       <div className="absolute inset-0 bg-[url('/grid-pattern.svg')] opacity-5"></div>
       <div className="container mx-auto relative z-10">
         <div className="text-center mb-16">
-          <span className="inline-block text-orange-500 font-medium mb-3 tracking-widest text-xs uppercase">
+          <span className="inline-block text-orange-500 font-bold mb-3 tracking-widest text-sm uppercase">
             OUR ACHIEVERS
           </span>
           <h2 className="text-3xl md:text-4xl font-bold text-gray-900 mb-4">

@@ -315,8 +315,8 @@ export default function TheClassesLanding() {
               <Link href="#testimonials" className="text-gray-600 hover:text-orange-500 transition-colors font-medium">
                 Testimonials
               </Link>
-              <Link href="#faculty" className="text-gray-600 hover:text-orange-500 transition-colors font-medium">
-                Faculty
+              <Link href="#toppers" className="text-gray-600 hover:text-orange-500 transition-colors font-medium">
+                Our Achievers
               </Link>
               <Link href="#contact" className="text-gray-600 hover:text-orange-500 transition-colors font-medium">
                 Contact
@@ -376,11 +376,11 @@ export default function TheClassesLanding() {
               Testimonials
             </Link>
             <Link
-              href="#faculty"
+              href="#toppers"
               className="text-gray-800 hover:text-orange-600 text-lg font-medium py-2 px-4 rounded-lg hover:bg-gray-50 transition-colors"
               onClick={() => setIsMenuOpen(false)}
             >
-              Faculty
+              Our Achievers
             </Link>
             <Link
               href="#contact"
