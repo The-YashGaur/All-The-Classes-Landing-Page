@@ -406,7 +406,7 @@ export default function TheClassesLanding() {
           <div className="lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
             {/* Left Content */}
             <div className="max-w-2xl">
-              <span className="inline-block bg-orange-100 text-orange-600 text-xs sm:text-sm font-medium px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-3 sm:mb-4">
+              <span className="inline-block bg-orange-100 text-orange-600 text-sm sm:text-sm font-medium px-3 sm:px-4 py-1 sm:py-1.5 rounded-full mb-3 sm:mb-4">
                 Best Coaching in India
               </span>
               <h1 className="text-3xl xs:text-4xl sm:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight mb-4 sm:mb-6">
